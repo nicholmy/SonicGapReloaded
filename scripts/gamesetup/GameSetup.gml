@@ -4,7 +4,7 @@ function GameSetup()
 	// Game settings
 	global.WindowTitle     = "Sonic Gap Reloaded";
 	global.StartRoom	   = Screen_DevMenu;
-	global.DevMode         = true;
+	global.DevMode         = false;
 	global.ShowSplash      = true;
 	global.Width           = 400;
 	global.Height		   = 224;
