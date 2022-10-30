@@ -20,6 +20,9 @@
 		IsBossfight    = -1;
 		OscillateAngle = -2.8125;
 		UpdateObjects  =  false;
+		EventMessage = "HEAD TO THE EXIT!";
+		EventTimer = 0;
+		
 		CurrentGapID   = -1;
 		CurrentGapName = "";
 		CurrentGapType = -1; // 0 - Ramp, 1 - Transfer

@@ -202,6 +202,13 @@
 				if (Stage.SONICComboList[3]) draw_text(X + 72, Y + 60, "I");
 				if (Stage.SONICComboList[4]) draw_text(X + 88, Y + 60, "C");
 				
+				var barXCenter = global.Width/2
+				var barYTop = Y + global.Height - 7
+				var barWidth = 64
+				var barHeight = 8
+				var minColor = Player.InvincibleBonus > 0 ? c_blue : c_red
+				var maxColor = Player.InvincibleBonus > 0 ? c_blue : c_green
+				
 				if (Stage.GapChainCount > 0) {
 					draw_set_alpha(1);
 					draw_set_halign(fa_right);
@@ -211,14 +218,13 @@
 					draw_text_ext_transformed(global.Width - 8, Y + global.Height - 15, string(Stage.GapComboTotal), 8, 256, 1, 1, 0);
 					
 					//draw_text_ext_transformed(global.Width/2, Y + global.Height - 15, string(Stage.ComboTimeLeft), 8, 256, 1, 1, 0);
-					var barXCenter = global.Width/2
-					var barYTop = Y + global.Height - 7
-					var barWidth = 64
-					var barHeight = 8
-					var minColor = Player.InvincibleBonus > 0 ? c_blue : c_red
-					var maxColor = Player.InvincibleBonus > 0 ? c_blue : c_green
+					
 					draw_healthbar(barXCenter - barWidth/2, barYTop, barXCenter + barWidth/2, barYTop - barHeight, Stage.ComboTimeLeft / Stage.MaxComboTime * 100, c_black, minColor, maxColor, 0, true, true)
 				}
+				
+				draw_set_halign(fa_center);
+				if (Stage.EventMessage != "" and Stage.EventTimer > 0)
+					draw_text(global.Width/2, barYTop - 16, Stage.EventMessage)
 			}
 		}
 	}

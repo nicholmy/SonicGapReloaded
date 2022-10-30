@@ -403,6 +403,7 @@
 			}
 		}
 		
+		if (EventTimer > 0) EventTimer--
 		
 	}
 	#endregion
