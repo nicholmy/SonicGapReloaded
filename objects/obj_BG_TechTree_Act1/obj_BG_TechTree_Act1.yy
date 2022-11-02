@@ -34,6 +34,7 @@
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":null,"objectId":null,"value":"0.97",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":null,"objectId":null,"value":"-0.25",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"globalYScroll","path":"objects/obj_Generic_BG/obj_Generic_BG.yy",},"objectId":{"name":"obj_Generic_BG","path":"objects/obj_Generic_BG/obj_Generic_BG.yy",},"value":"0.6",},
   ],
   "parent": {
     "name": "Background Objects",

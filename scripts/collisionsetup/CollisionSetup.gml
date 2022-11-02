@@ -18,6 +18,9 @@ function CollisionSetup()
 		case Stage_StarStation2:
 			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
 		break;
+		case Stage_TechTreeBoss:
+			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
+		break;
 		case SpStage_Test:
 			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
 		break;
@@ -40,6 +43,9 @@ function CollisionSetup()
 			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
 		break;
 		case SpStage_SS_5:
+			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
+		break;
+		case SpStage_TT_1:
 			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
 		break;
 		default:

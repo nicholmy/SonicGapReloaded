@@ -220,13 +220,19 @@ function PlayerGroundFloorCollision()
 		{	
 			// Get tile above us
 			var FindFloor = tile_find_2v(PosX + RadiusX, PosY - RadiusY, PosX - RadiusX, PosY - RadiusY, false, Angle, Layer);
-			
+			//StickToConvex = true;
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
+				show_debug_message("Tile: " + string(FindFloor[0]));
+				show_debug_message("Distance: " + string(Distance));
+				
 				if  FindFloor[0] > Distance
 				{
+					show_debug_message("Exiting...")
+					show_debug_message("Tile: " + string(FindFloor[0]));
+					show_debug_message("Distance: " + string(Distance));
 					if Animation == AnimMove
 					{
 						animation_reset(0);

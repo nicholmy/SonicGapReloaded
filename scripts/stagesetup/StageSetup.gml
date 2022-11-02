@@ -145,6 +145,43 @@ function StageSetup()
 			]
 		}
 		break;
+		case Stage_TechTreeBoss:
+		{
+			ZoneName         = "TECHNOLOGY____TREE";
+			ActID            = 2;
+			GapLevel		 = true;
+			WaterLevel       = 0;
+			WaterEnabled     = false;
+			StageMusic       = TechTree3;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			ScoreTarget		 = 5000;
+			
+			NextStage	 = Screen_DevMenu;
+			SaveProgress = false;
+			IsFinalStage = false;
+			
+			GapNameList = [
+			"CANYON JUMP", 
+			"HELLO WORLD BAT JUMP",
+			"PEAK TRANSFER",
+			"TALL SLINGSHOT",
+			"AROUND THE WORLD SLINGSHOT",
+			"THROUGH THE RAMP",
+			"LEAP TO THE MIDDLE"]
+			
+			GapScoreList = [
+			200,
+			200,
+			200,
+			200,
+			200,
+			500,
+			1000
+			]
+		}
+		break;
 		// Template
 		default:
 		{

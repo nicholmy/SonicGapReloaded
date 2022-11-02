@@ -21,12 +21,14 @@ if (object_check_player(ColHitbox) and !Stage.IsFinished) {
 	
 	if (!isCollected) {
 		global.SpecialRings++;
-		global.SpecialRingList[zoneID][ringID] = true;
+		global.SpecialRingList[zoneID][ringID] = 2;
 	}
 	
 	global.LastZoneCleared = zoneID;
 	global.LastRingCleared = ringID;
 	global.LastScoreTarget = Stage.ScoreTarget;
+	
+	Player.Animation = AnimSpin;
 	//global.Emeralds++;
 	//global.SpecialState = 1;
 	//global.SpecialScore = 10000;

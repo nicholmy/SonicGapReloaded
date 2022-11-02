@@ -9,16 +9,16 @@ event_inherited();
 }*/
 
 //Skies
-scr_draw_background_tiled_area(bg_tt_sky, 0,  0,  Camera.ViewX * 1,  Camera.ViewY * globalYScroll + 0 ,  Camera.ViewX * 0 +  global.Width, 397);
+scr_draw_background_tiled_area(bg_tt1_sky, 0,  0,  Camera.ViewX * 1,  Camera.ViewY * globalYScroll + 0 + yOffset ,  Camera.ViewX * 0 +  global.Width, 394);
 
-//Mountains & Water
-//scr_draw_background_tiled_area(bg_tt_mountains, 0,  0,  Camera.ViewX * 0.95,  Camera.ViewY * globalYScroll + 265 ,  Camera.ViewX * 0.05 +  global.Width, 32);
-//scr_draw_background_tiled_area(bg_tt_water, 0,  0,  Camera.ViewX * 0.9 + (cl_speed * 0.50),  Camera.ViewY * globalYScroll + 297 ,  Camera.ViewX * 0.1 +  global.Width - (cl_speed * 0.50), 188);
 
-scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.9,  Camera.ViewY * globalYScroll + 100 ,  Camera.ViewX * 0.1 +  global.Width, 322);
-scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.8,  Camera.ViewY * globalYScroll + 200 ,  Camera.ViewX * 0.2 +  global.Width, 322);
-scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.7,  Camera.ViewY * (globalYScroll - 0.2) + 650 ,  Camera.ViewX * 0.3 +  global.Width, 643);
-scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.6,  Camera.ViewY * (globalYScroll - 0.2) + 750 ,  Camera.ViewX * 0.4 +  global.Width, 643);
+scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.9,  Camera.ViewY * (globalYScroll - 0.1) + 100 + yOffset ,  Camera.ViewX * 0.1 +  global.Width, 322);
+scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.8,  Camera.ViewY * (globalYScroll - 0.1) + 200 + yOffset ,  Camera.ViewX * 0.2 +  global.Width, 322);
+scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.7,  Camera.ViewY * (globalYScroll - 0.4) + 650 + yOffset ,  Camera.ViewX * 0.3 +  global.Width, 643);
+scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.6,  Camera.ViewY * (globalYScroll - 0.4) + 750 + yOffset ,  Camera.ViewX * 0.4 +  global.Width, 643);
+
+
+
 /*
 scr_draw_background_tiled_area(bg_tt_coaster_yellow, 0,  0,  Camera.ViewX * 0.88,  Camera.ViewY * globalYScroll + 225 ,  Camera.ViewX * 0.12 +  global.Width, 179);
 

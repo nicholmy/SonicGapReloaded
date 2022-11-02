@@ -164,6 +164,26 @@ function SpStageSetup()
 			IsFinalStage = false;	
 		}
 		break;
+		case SpStage_TT_1:
+		{
+			ZoneName         = "SPECIAL____STAGE";
+			ActID            = 0;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = TechTree_Special;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			
+			MaxTime			 = 3000;
+			SpecialStageType = 3;
+			RingsLeft		 = 10;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
 		// Template
 		default:
 		{

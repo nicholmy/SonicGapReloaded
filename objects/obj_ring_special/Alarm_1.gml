@@ -2,7 +2,7 @@
 // You can write your code in this editor
 if (!isCollected) {
 	global.SpecialRings++;
-	global.SpecialRingList[zoneID][ringID] = true;
+	global.SpecialRingList[zoneID][ringID] = 2;
 }
 	
 global.LastZoneCleared = zoneID;

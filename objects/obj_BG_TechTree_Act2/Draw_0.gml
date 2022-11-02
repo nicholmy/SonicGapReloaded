@@ -9,7 +9,7 @@ event_inherited();
 }*/
 
 //Skies
-scr_draw_background_tiled_area(bg_tt_sky, 0,  100,  Camera.ViewX * 1,  Camera.ViewY * globalYScroll + 0 + yOffset ,  Camera.ViewX * 0 +  global.Width, 397);
+scr_draw_background_tiled_area(bg_tt1_sky, 0,  100,  Camera.ViewX * 1,  Camera.ViewY * globalYScroll + 0 + yOffset ,  Camera.ViewX * 0 +  global.Width, 397);
 
 //Mountains & Water
 scr_draw_background_tiled_area(bg_tt_mountains, 0,  0,  Camera.ViewX * 0.95,  Camera.ViewY * globalYScroll + 265 - 50 + yOffset ,  Camera.ViewX * 0.05 +  global.Width, 32);

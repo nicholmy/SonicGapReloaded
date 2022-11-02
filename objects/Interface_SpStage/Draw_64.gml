@@ -163,7 +163,8 @@
 				+ "\n   L BOUND: "		   + string(Stage.LeftBoundary)   + " TARGET: " + string(Stage.TargetLeftBoundary)
 				+ "\n   R BOUND: "		   + string(Stage.RightBoundary)  + " TARGET: " + string(Stage.TargetRightBoundary)
 				+ "\n   OBJECTS LOADED: "  + string(instance_count)
-				+ "\n"
+				+ "\n   EVENT MESSAGE: "  + string(Stage.EventMessage)
+				+ "\n   EVENT TIMER: "  + string(Stage.EventTimer)
 				+ "\n              * SPECIAL *"
 				+ "\n   ENEMY LEFT: "		   + string(SpecialStage_Base.EnemiesLeft)
 				+ "\n   RINGS LEFT: "		   + string(SpecialStage_Base.RingsLeft)

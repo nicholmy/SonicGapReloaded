@@ -15,6 +15,9 @@ function savedata_reset(){
 	
 	// This needs to be updated every time a new special or red ring is added
 	// Each row stands for a zone
+	// 0 = Not Unlocked
+	// 1 = Unlocked
+	// 2 = Cleared
 	global.SpecialRingList = [
 		[0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0]

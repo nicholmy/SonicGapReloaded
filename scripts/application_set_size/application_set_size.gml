@@ -16,8 +16,8 @@ function application_set_size(width,height)
 	surface_resize(application_surface, width, height);
 	
 	// Update camera and its viewport size
-	view_enabled[0] = true;
-	view_visible[0] = true;
+	view_enabled = true;
+	view_visible = true;
 	
 	camera_set_view_size(GameCamera, width + global.ScreenBuffer * 2, height);
 }

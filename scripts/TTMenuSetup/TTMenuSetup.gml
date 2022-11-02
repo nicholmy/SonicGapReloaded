@@ -20,16 +20,11 @@ function TTMenuSetup()
 	
 	// Stage Select
 	menu_add_header(2,    "SELECT A STAGE");
-	menu_add_option(2, 0, "ACT 1",  Stage_StarStation);
-	menu_add_option(2, 1, "ACT 2", Stage_StarStation2);
+	menu_add_option(2, 0, "BOSS", Stage_TechTreeBoss);
 
 	
 	menu_add_header(3,    "SELECT A SPECIAL STAGE");
-	menu_add_option(3, 0, "STAGE 1", SpStage_SS_1);
-	menu_add_option(3, 1, "STAGE 2", SpStage_SS_2);
-	menu_add_option(3, 2, "STAGE 3", SpStage_SS_3);
-	menu_add_option(3, 3, "STAGE 4", SpStage_SS_4);
-	menu_add_option(3, 4, "STAGE 5", SpStage_SS_5);
+	menu_add_option(3, 0, "STAGE 1", SpStage_TT_1);
 	
 	// Zone Select
 	menu_add_header(4,    "SELECT A ZONE");

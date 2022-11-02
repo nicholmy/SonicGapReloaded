@@ -1,5 +1,5 @@
 /// @description Trigger on player contact
-isCollected = (global.SpecialRingList[zoneID][ringID] == true)
+isCollected = (global.SpecialRingList[zoneID][ringID] == 2)
 
 if (!Stage.IsFinished) {
 	animation_play(sprite_index, 8, 0);

@@ -6,8 +6,9 @@
 	// Process stage timer
 	if TimeEnabled
 	{
-		if (--Time) == 0
+		if (--Time) <= 0
 		{
+			Time = 0;
 			player_damage(false, false, true);
 		}	
 	}
@@ -312,3 +313,5 @@ if (instance_exists(BonusRing_Spawner) and RingSpawnState == 0 and RingSpawnTime
 if (RingSpawnTimer > 0) {
 	RingSpawnTimer--;
 }
+
+if (EventTimer > 0) EventTimer--;

@@ -21,11 +21,10 @@
 	{
 		// Star Station
 		case 0:
-		case 1:
 			instance_create(x, y, obj_BG_StarStation_Act3);
 		break;
 		// Technology Tree
-		case 2:
+		case 1:
 			instance_create(x, y, obj_BG_TechTree_Act1);
 		break;
 	}

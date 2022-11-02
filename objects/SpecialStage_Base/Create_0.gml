@@ -31,14 +31,22 @@
 		GapStaleList	= [];
 		CurrentSONICID = -1;
 		PlayRingSpawnSound = false;
+		EventMessage = "HEAD TO THE EXIT!";
+		EventTimer = 6000;
 		
 		RingSpawnState	= 0; // 0 = Ring hasn't spawned, 1 = Ring has spawned, 2 = All Rings have spawned
 		RingSpawnTimer	= 0;
+
 		if (SpecialStageType == 1) {
 			RingsLeft = instance_number(BonusRing);
+			EventMessage = "GRAB THE RINGS!";
 		}
 		if (SpecialStageType == 2) {
 			EnemiesLeft = instance_number(Enemy);
+			EventMessage = "DEFEAT THE ENEMIES!";
+		}
+		if (SpecialStageType == 3) {
+			EventMessage = "GRAB THE RINGS!";
 		}
 		if (SpecialStageType == 0 or SpecialStageType == 1 or SpecialStageType == 3) {
 			EnemiesLeft = 0;

@@ -176,31 +176,21 @@
 	
 				draw_text(X + 92, Y + 25, string(SpecialStage_Base.EnemiesLeft));
 			}
+			var barYTop = global.Height - 7
+			draw_set_font(Font.FontDefault);
+			draw_set_halign(fa_center);
+			
+			
 			/*
 			// Draw LIVES
 			draw_set_font(Font.FontDigits2);
 			draw_text(X + 65, Y + global.Height - 15, Player.Lives);
 	
 			draw_sprite(gui_hud_lives, global.Character, X + 40, Y + global.Height - 16);
-			
-			if (Stage.GapLevel) {
-				// Set font
-				draw_set_alpha(1);
-				draw_set_halign(fa_right);
-				draw_set_font(Font.FontDefault);
-				
-				draw_text_ext_transformed(global.Width - 8, 8, Stage.CurrentGapName, 8, 256, 1, 1, 0);
-				
-				if (Stage.GapChainCount > 0) {
-					draw_set_alpha(1);
-					draw_set_halign(fa_right);
-					draw_set_font(Font.FontDefault);
-				
-					draw_text_ext_transformed(global.Width - 8, Y + global.Height - 31, string(Stage.GapChainCount), 8, 256, 1, 1, 0);
-					draw_text_ext_transformed(global.Width - 8, Y + global.Height - 15, string(Stage.GapComboTotal), 8, 256, 1, 1, 0);
-				}
-			}*/
+			*/
 		}
+		/*if (Stage.EventMessage != "" and Stage.EventTimer > 0)
+				draw_text(global.Width/2, barYTop - 16, SpecialStage_Base.EventMessage)*/
 	}
 	#endregion
 	
@@ -392,6 +382,11 @@
 			draw_set_halign(fa_right);
 			draw_set_font(Font.FontCard);
 			draw_text(CardValue[7], global.Height / 2 - 38, Stage.ZoneName);
+			
+			var barYTop = global.Height - 7
+			draw_set_font(Font.FontDefault);
+			draw_set_halign(fa_center);
+			draw_text(global.Width/2, barYTop - 16, SpecialStage_Base.EventMessage)
 		}
 	}
 	#endregion
