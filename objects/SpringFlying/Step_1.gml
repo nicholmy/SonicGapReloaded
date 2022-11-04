@@ -1,13 +1,14 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Setup player collision, handle the spring
 
-/// @description Handle Bouncing
+// Play the flying animation
 animation_play(sprite_index, 2, 0);
 
-// Do collision
+// Handle collision only from the top
 object_act_solid(false, true, false, false, false);
 
+// Upon player collision...
 if (object_check_player(ColSolidU)) {
+	// Bounce the player up
 	Player.Grounded = false;
 	Player.Ysp = Player.HammerState ? -superStrength : -strength;
 	Player.Animation = AnimSpring;

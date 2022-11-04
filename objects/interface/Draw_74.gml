@@ -211,9 +211,16 @@
 				
 				if (Stage.GapChainCount > 0) {
 					draw_set_alpha(1);
-					draw_set_halign(fa_right);
 					draw_set_font(Font.FontDefault);
-				
+					
+					draw_set_color(c_yellow);
+					draw_set_halign(fa_left);
+					draw_text_ext_transformed(global.Width - 100, Y + global.Height - 31, "CHAIN", 8, 256, 1, 1, 0);
+					draw_text_ext_transformed(global.Width - 100, Y + global.Height - 15,"TOTAL", 8, 256, 1, 1, 0);
+					
+					
+					draw_set_halign(fa_right);
+					draw_set_color(c_white);
 					draw_text_ext_transformed(global.Width - 8, Y + global.Height - 31, string(Stage.GapChainCount), 8, 256, 1, 1, 0);
 					draw_text_ext_transformed(global.Width - 8, Y + global.Height - 15, string(Stage.GapComboTotal), 8, 256, 1, 1, 0);
 					

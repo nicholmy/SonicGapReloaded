@@ -43,7 +43,8 @@ function savedata_load_ini(slot)
 			
 			var zoneString = ini_read_string("special", string(i), string_repeat("0",spRingCount));
 			for (var j = 0; j < spRingCount; j++) {
-				Data[9][i][j] = string_char_at(zoneString, j) == "1";
+				// string_char_at counts 0 and 1 as the first index...
+				Data[9][i][j] = int64(string_char_at(zoneString, j+1));
 			}
 		}
 		
@@ -54,7 +55,7 @@ function savedata_load_ini(slot)
 			
 			var zoneString = ini_read_string("red", string(i), string_repeat("0",redRingCount));
 			for (var j = 0; j < redRingCount; j++) {
-				Data[10][i][j] = string_char_at(zoneString, j) == "1";
+				Data[10][i][j] = int64(string_char_at(zoneString, j+1));
 			}
 		}
 		

@@ -1,8 +1,6 @@
-/// @description Insert description here
+/// @description Setup variables and properties
 // You can write your code in this editor
 startBounce = false;
-superBounce = false;
-bounceStrength = 2;
 time = 0;
 
 object_set_unload(FlagPause);

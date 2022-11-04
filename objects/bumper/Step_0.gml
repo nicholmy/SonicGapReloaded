@@ -8,14 +8,11 @@
 			// Set player speeds based on collision angle
 			var Angle = point_direction(x, y, floor(Player.PosX), floor(Player.PosY));
 			
-			if Player.Grounded
-			{
+			if Player.Grounded {
 				Player.Gsp = 7 * dcos(Angle);
 			}
-			else with Player
-			{
-				if !GlideState
-				{
+			else with Player {
+				if !GlideState {
 					Xsp = 7 * dcos(Angle);
 				}
 				Ysp     = 7 * -dsin(Angle);
@@ -24,8 +21,7 @@
 			}
 			
 			// Add points to the score
-			if ScoreLimit
-			{
+			if ScoreLimit {
 				var  ThisObject = id;
 				var  Object     = instance_create(x, y, ScoreObject);
 				with Object
