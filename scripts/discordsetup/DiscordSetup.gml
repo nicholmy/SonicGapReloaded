@@ -27,6 +27,7 @@ function DiscordSetup()
 		case SpStage_SS_3:
 		case SpStage_SS_4:
 		case SpStage_SS_5:
+		case SpStage_TT_1:
 			TopString = "Special Stage";
 		break;
 		case BStage_Template:
@@ -51,6 +52,9 @@ function DiscordSetup()
 			break;
 			case CharMighty:
 				var Char = "Mighty";
+			break;
+			case CharRay:
+				var Char = "Ray";
 			break;
 			default:		  
 				var Char = "";

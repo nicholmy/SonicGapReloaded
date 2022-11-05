@@ -106,13 +106,10 @@
 			}
 			else if !audio_sfx_is_playing(sfxScoreTally)
 			{
-				if global.LastZoneCleared == 0
+				if global.LastRingCleared == 0 or global.LastRingCleared == 2 and global.SpecialRingList[global.LastZoneCleared][global.LastRingCleared+1] < 2
 				{
-					if global.LastRingCleared == 0 or global.LastRingCleared == 2 and !global.SpecialRingList[global.LastZoneCleared][global.LastRingCleared+1]
-					{
-						global.SpecialRings++;
-						global.SpecialRingList[global.LastZoneCleared][global.LastRingCleared+1] = 2;
-					}
+					global.SpecialRings++;
+					global.SpecialRingList[global.LastZoneCleared][global.LastRingCleared+1] = 2;
 				}
 				audio_sfx_play(sfxEmerald, false);
 				// Increment state

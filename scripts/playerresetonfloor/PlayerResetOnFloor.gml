@@ -56,6 +56,7 @@ function PlayerResetOnFloor()
 		GlideState		 = false;
 		ClimbState		 = false;
 		HammerState		 = false;
+		RayFlightState	 = false;
 		ScoreCombo		 = false;
 		BarrierIsActive  = false;
 		AllowSpikeTap	 = false;

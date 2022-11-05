@@ -466,6 +466,12 @@
 					var Icon = gui_icon_sonic;
 				}
 				break;
+				case CharRay:
+				{
+					var Char = "RAY____GOT";
+					var Icon = gui_icon_sonic;
+				}
+				break;
 				default:
 				{
 					var Char = "CHARACTER____GOT";

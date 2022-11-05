@@ -15,9 +15,9 @@ function MenuSetup()
 	StartStage = Screen_SkyStation;
 	
 	// Main Menu
-	menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEFAULT MENU");
+	menu_add_header(0,    "SONIC GAP RELOADED DEMO" + "\n\nMAIN MENU");
 	menu_add_option(0, 0, "GAME START",   1);
-	menu_add_option(0, 1, "SCENE SELECT", 3);
+	menu_add_option(0, 1, "- -", 3);
 	menu_add_option(0, 2, "OPTIONS",      6);	
 	menu_add_option(0, 3, "EXIT GAME",    noone);
 	
@@ -42,6 +42,7 @@ function MenuSetup()
 	menu_add_option(3, 1, "TAILS",	  2);
 	menu_add_option(3, 2, "KNUCKLES", 2);
 	menu_add_option(3, 3, "MIGHTY", 2);
+	menu_add_option(3, 4, "RAY", 2);
 		
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");

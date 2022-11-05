@@ -21,6 +21,7 @@
 				PlayerPosition();
 				PlayerSonicDropdash();
 				PlayerTailsFlight();
+				PlayerRayFlight();
 				PlayerMightyHammerDrop();
 				PlayerAirLevelCollision();
 			}

@@ -204,6 +204,24 @@ function PlayerJump()
 			
 				Animation	= AnimHammerDrop;
 				audio_sfx_play(sfxDoubleSpinAttack, false);
+		};
+		case CharRay:
+		{
+			RadiusX		= DefaultRadiusX;
+			RadiusY		= DefaultRadiusY;
+			AirLock     = false;
+			Jumping     = false;
+			Spinning    = false;
+			RayFlightState = true;
+			//FlightValue = 480;
+			//Grv			= 0.03125;
+			
+			/*if !IsUnderwater
+			{
+				audio_sfx_play(sfxFlying, true);
+			}*/
+				
 		}
+		break;
 	}
 }

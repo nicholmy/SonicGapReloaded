@@ -17,6 +17,7 @@ function SSMenuSetup()
 	menu_add_option(1, 1, "TAILS",	  0);
 	menu_add_option(1, 2, "KNUCKLES", 0);
 	menu_add_option(1, 3, "MIGHTY", 0);
+	menu_add_option(1, 4, "RAY", 0);
 	
 	// Stage Select
 	menu_add_header(2,    "SELECT A STAGE");

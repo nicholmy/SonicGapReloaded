@@ -679,5 +679,133 @@ function PlayerAnimate()
 			}
 		}
 		#endregion
+		
+		#region Ray
+		case CharRay:
+		{
+			switch Animation
+			{
+				case AnimIdle:
+				{
+					animation_play(spr_ray_idle, [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 16, 
+											8, 8, 64, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8], 16);
+				}
+				break;
+				case AnimMove:	
+				{
+					if abs(Gsp) < 6
+					{
+						animation_play(spr_ray_walk, floor(max(1, 9 - abs(Gsp))), 0);
+					}
+					else
+					{
+						if global.PeeloutEnabled
+						{
+							var Sprite = abs(Gsp) < 10 ? spr_ray_run : spr_ray_peelout;
+						}
+						else
+						{
+							var Sprite = spr_ray_run;
+						}
+						animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
+					}
+				}
+				break;
+				case AnimSpin:
+				{
+					animation_play(spr_ray_roll, floor(max(1, 5 - abs(Gsp))), 0);
+				}
+				break;
+				case AnimSpindash:
+					animation_play(spr_ray_spindash, 1, 0);
+				break;
+				case AnimCrouch:
+					animation_play(spr_ray_crouch, 4, 3);
+				break;
+				case AnimLookup:
+					animation_play(spr_ray_lookup, 4, 5);
+				break;
+				case AnimSkid:
+				{
+					if !(--AnimSkidTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_ray_skid, 2, 7);
+					}
+				}
+				break;
+				case AnimPush:
+					animation_play(spr_ray_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
+				break;
+				case AnimHurt:
+					animation_set(spr_ray_hurt, 4);
+				break;
+				case AnimDeath:
+					animation_set(spr_ray_die, 0);
+				break;	
+				case AnimDrown:
+					animation_set(spr_ray_die, 1);
+				break;
+				case AnimBalance:
+					animation_play(spr_ray_edge_balance, 16, 0);
+				break;
+				case AnimBalanceFlip:
+					animation_play(spr_ray_edge_balance, 16, 0);
+				break;
+				case AnimBalancePanic:
+					animation_play(spr_sonic_balance_panic, 4, 0);
+				break;
+				case AnimBalanceTurn:
+					animation_set(spr_sonic_balance_turn, 0);
+				break;
+				case AnimSpring:
+				{
+					/*if !(--AnimSpringTime)
+					{
+						Animation = AnimMove;
+					}*/
+					if (Ysp > 0)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_ray_spring, 4, 0);
+					}
+				}
+				break;
+				case AnimBreathe:
+				{
+					if !(--AnimBreatheTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_ray_breath, 4, 0);
+					}
+				}
+				break;
+				case AnimRayGlideUp:
+				{
+					animation_play(spr_ray_squirrel_glideup, 4, 0);
+				}
+				break;
+				case AnimRayGlideTurn:
+				{
+					animation_play(spr_ray_squirrel_glide, 4, 0);
+				}
+				break;
+				case AnimRayGlideDown:
+				{
+					animation_play(spr_ray_squirrel_glideup, 4, 0);
+				}
+				break;
+			}
+		}
+		#endregion
 	}
 }

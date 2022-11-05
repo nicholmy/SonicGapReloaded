@@ -41,6 +41,10 @@ function PlayerStartup()
 	FlightValue			= 0;
 	HammerState			= 0;
 	AllowSpikeTap		= 0;
+	RayFlightState		= 0;
+	RayGlideSpeed		= 0;
+	RayGlideAngleDirection = 0;
+	RayGlideAngle		= 0;
 	AllowMidAirActions  = 0;
 	HighspeedBonus	    = 0;
 	InvincibleBonus	    = 0;
