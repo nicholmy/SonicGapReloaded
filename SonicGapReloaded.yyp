@@ -736,6 +736,7 @@
     {"id":{"name":"spr_obj_swingingclaw_editor","path":"sprites/spr_obj_swingingclaw_editor/spr_obj_swingingclaw_editor.yy",},"order":6,},
     {"id":{"name":"spr_tails_tail_type2","path":"sprites/spr_tails_tail_type2/spr_tails_tail_type2.yy",},"order":23,},
     {"id":{"name":"SpStage_SS_1","path":"rooms/SpStage_SS_1/SpStage_SS_1.yy",},"order":0,},
+    {"id":{"name":"sfxRayGlide","path":"sounds/sfxRayGlide/sfxRayGlide.yy",},"order":59,},
     {"id":{"name":"bg_tt_trees","path":"sprites/bg_tt_trees/bg_tt_trees.yy",},"order":9,},
     {"id":{"name":"DropdashDust","path":"objects/DropdashDust/DropdashDust.yy",},"order":8,},
     {"id":{"name":"SteamVent_Up_Tap","path":"objects/SteamVent_Up_Tap/SteamVent_Up_Tap.yy",},"order":2,},

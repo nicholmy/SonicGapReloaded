@@ -115,6 +115,8 @@
 				+ "\n   DROPDASH: "			 + string(Player.DropdashRev)
 				+ "\n   DROPDASH FLAG: "	 + string(Player.DropdashFlag)
 				+ "\n   SPIKE TAP OK: "		 + string(Player.AllowSpikeTap)
+				+ "\n	RAY GLIDE SPD: "     + string(Player.RayGlideSpeed)
+				+ "\n	RAY GLIDE ANG: "     + string(Player.RayGlideAngle)
 				+ "\n   BARRIER: "		     + string(Player.BarrierType)
 				+ "\n   BARRIER ACTIVE: "    + string(Player.BarrierIsActive)
 				+ "\n   LAYER: "			 + string(Player.Layer)

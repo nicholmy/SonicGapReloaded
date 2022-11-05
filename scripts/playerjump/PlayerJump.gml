@@ -207,19 +207,27 @@ function PlayerJump()
 		};
 		case CharRay:
 		{
-			RadiusX		= DefaultRadiusX;
-			RadiusY		= DefaultRadiusY;
-			AirLock     = false;
-			Jumping     = false;
-			Spinning    = false;
-			RayFlightState = true;
-			//FlightValue = 480;
-			//Grv			= 0.03125;
+			RadiusX			= DefaultRadiusX;
+			RadiusY			= DefaultRadiusY;
+			AirLock			= false;
+			Jumping			= false;
+			Spinning		= false;
+			Angle			= 0;
 			
-			/*if !IsUnderwater
-			{
-				audio_sfx_play(sfxFlying, true);
-			}*/
+			audio_sfx_play(sfxRayGlide, false);
+			
+
+			
+			Ysp = 0;
+			RayFlightState	= true;
+			
+			RayGlideSpeed = max(abs(Xsp), 3);
+			RayGlideAngle	= 0;
+			RayGlideAngleDirection = -1;
+			
+			// Nosedive if you're holding the direction you're facing
+			if ((Xsp > 0 && Input.Right) || (Xsp < 0 && Input.Left)) RayGlideAngleDirection = 1;
+			
 				
 		}
 		break;

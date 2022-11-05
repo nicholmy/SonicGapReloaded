@@ -17,6 +17,7 @@ function PlayerPhysicsHandle()
 			ClimbSpeed    = 1;
 			JumpMin		  = -4;
 			Jump		  = global.Character == CharKnuckles ? -6 : -6.5;
+			GlidePeriodFactor = 2;
 		}
 		
 		// Super physics
@@ -81,6 +82,7 @@ function PlayerPhysicsHandle()
 			ClimbSpeed    = 1;
 			JumpMin		  = -2;
 			Jump		  = global.Character == CharKnuckles ? -3 : -3.5;
+			GlidePeriodFactor = 0.5;
 		}
 		
 		// Super physics

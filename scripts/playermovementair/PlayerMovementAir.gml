@@ -1,7 +1,7 @@
 function PlayerMovementAir()
 {
 	// Lock control while performing Knuckles' actions unless we're falling from a glide
-	if ClimbState or GlideState and GlideState != GlideFall
+	if ClimbState or GlideState and GlideState != GlideFall or RayFlightState
 	{
 		return;
 	}

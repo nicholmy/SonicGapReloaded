@@ -44,6 +44,7 @@ function PlayerStartup()
 	RayFlightState		= 0;
 	RayGlideSpeed		= 0;
 	RayGlideAngleDirection = 0;
+	RayGlideAngleSpeed = 0;
 	RayGlideAngle		= 0;
 	AllowMidAirActions  = 0;
 	HighspeedBonus	    = 0;
@@ -74,6 +75,11 @@ function PlayerStartup()
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
 	Grv			     = 0.21875;
+	RayGlideGravity  = .125;
+	RayGlideAngleDirection = 1;   // 1 = Gliding towards upwards angle, -1 = Gliding towards downwards angle
+	RayGlideAngleSpeed = 4;		  // This is done for a slightly more dramatic curve at the beginning
+	RayGlideBoost = 2;
+	RayGlidePeriodFactor = 2;
 	AirTimer	     = 1800;
 	CollisionMode    = [0, 0];
 	Facing			 = FlipRight;
@@ -92,6 +98,12 @@ function PlayerStartup()
 		break;
 		case CharKnuckles:
 			sprite_index = spr_knuckles_idle;
+		break;
+		case CharMighty:
+			sprite_index = spr_mighty_idle;
+		break;
+		case CharRay:
+			sprite_index = spr_ray_idle;
 		break;
 	}
 	

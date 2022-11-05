@@ -796,12 +796,12 @@ function PlayerAnimate()
 				break;
 				case AnimRayGlideTurn:
 				{
-					animation_play(spr_ray_squirrel_glide, 4, 0);
+					animation_set(spr_ray_squirrel_glide, floor(4 - 4 * dsin(2 * RayGlideAngle)));
 				}
 				break;
 				case AnimRayGlideDown:
 				{
-					animation_play(spr_ray_squirrel_glideup, 4, 0);
+					animation_play(spr_ray_squirrel_glidedown, 4, 0);
 				}
 				break;
 			}

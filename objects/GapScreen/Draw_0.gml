@@ -28,6 +28,9 @@
 		case CharMighty:
 			var Text1 = "MIGHTY____GOT____A";
 		break;
+		case CharRay:
+			var Text1 = "RAY____GOT____A";
+		break;
 		default:
 			var Text1 = "CHARACTER____GOT____A";
 	}

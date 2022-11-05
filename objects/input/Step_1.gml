@@ -172,13 +172,21 @@
 	#region Reset
 	{
 		// Ignore "double" input
-		if Left and Right
+		/*if Left and Right
 		{
 			Left       = false;
 			LeftPress  = false;
 			Right      = false;
 			RightPress = false;
 		
+		}*/
+		if Left and RightPress
+		{
+			Left		= false;
+			LeftPress	= false;
+		} else if (Right and LeftPress) {
+			Right		= false;
+			RightPress	= false;
 		}
 		if Up and Down
 		{
