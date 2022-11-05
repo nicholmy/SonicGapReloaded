@@ -12,6 +12,7 @@ function PlayerRayFlight(){
 		if !(Xsp > 0)
 		{
 			RayFlightState = false;
+			Spinning		= true;
 			Animation = AnimSpin;
 			return;
 		}
@@ -24,6 +25,7 @@ function PlayerRayFlight(){
 		if !(Xsp < 0)
 		{
 			RayFlightState = false;
+			Spinning		= true;
 			Animation = AnimSpin;
 			return;
 		}
@@ -32,6 +34,7 @@ function PlayerRayFlight(){
 	// Stop if not holding the jump button
 	if (!Input.ABC) {
 		RayFlightState = false;
+		SSpinning		= true;
 		Animation = AnimSpin;
 		return;
 	}

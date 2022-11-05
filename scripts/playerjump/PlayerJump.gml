@@ -215,9 +215,7 @@ function PlayerJump()
 			Angle			= 0;
 			
 			audio_sfx_play(sfxRayGlide, false);
-			
-
-			
+						
 			Ysp = 0;
 			RayFlightState	= true;
 			
