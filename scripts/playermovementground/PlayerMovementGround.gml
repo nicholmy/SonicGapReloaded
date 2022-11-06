@@ -95,6 +95,14 @@ function PlayerMovementGround()
 	Xsp = Gsp *  dcos(Angle);
 	Ysp = Gsp * -dsin(Angle);
 	
+	// Limit rolling speed
+	if !global.NoRollSpeedLimit
+	{
+		Xsp = clamp(Xsp, -16, 16);
+		Ysp = clamp(Ysp, -16, 16);
+		Gsp = clamp(Gsp, -16, 16);
+	}
+	
 	// Define which animations should be in priority over the idle animation
 	switch Animation
 	{

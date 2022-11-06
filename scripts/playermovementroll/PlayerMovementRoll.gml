@@ -55,6 +55,8 @@ function PlayerMovementRoll()
 	if !global.NoRollSpeedLimit
 	{
 		Xsp = clamp(Xsp, -16, 16);
+		Ysp = clamp(Ysp, -16, 16);
+		Gsp = clamp(Gsp, -16, 16);
 	}
 
 	// Unroll
