@@ -16,6 +16,11 @@ function object_act_enemy(enemyType)
 	// Damage enemy
 	if HitboxCheck or ActionCheck or SpinCheck or InvincibleCheck    
 	{	
+		if (Player.RayFlightState and Player.BarrierType == BarrierWater) {
+			Player.RayFlightState = false;
+			Player.Animation = AnimSpin;
+			Player.Spinning = true;
+		}
 		switch enemyType
 		{
 			case EnemyBadnik:

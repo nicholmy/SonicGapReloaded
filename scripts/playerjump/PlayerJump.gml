@@ -214,8 +214,6 @@ function PlayerJump()
 			Jumping			= false;
 			Spinning		= false;
 			Angle			= 0;
-			
-			audio_sfx_play(sfxRayGlide, false);
 						
 			Ysp = 0;
 			RayFlightState	= true;
@@ -225,9 +223,40 @@ function PlayerJump()
 			RayGlideAngleDirection = -1;
 			
 			// Nosedive if you're holding the direction you're facing
-			if ((Xsp > 0 && Input.Right) || (Xsp < 0 && Input.Left)) RayGlideAngleDirection = 1;
+			if ((Xsp > 0 && Input.Right) || (Xsp < 0 && Input.Left)) { 
+				/*if (BarrierType == BarrierWater) {
+					// Update barrier
+					with Barrier
+					{
+						animation_play(spr_obj_barrier_water_drop, [6, 12, 0], 0);
+					}
+
+					audio_sfx_play(sfxWaterBarrierBounce, false);
+					RayGlideSpeed = 5;
+					RayGlideAngle = -45;
+				}*/
+				RayGlideAngleDirection = 1;
+			}
 			
+			if (BarrierType == BarrierThunder) {
+				audio_sfx_play(sfxThunderBarrierJump, false);
 				
+				// Create Electric Sparks:
+				for (var i = 0; i < 4; i++)
+				{
+					var  Object = instance_create(PosX, PosY, BarrierSparkle);
+					with Object
+					{
+						SparkleID = i;
+					}
+				}
+				
+				RayGlideSpeed = 8;
+				RayGlideAngleDirection = -1;
+				RayGlideAngle = 45;	
+			} else {
+				audio_sfx_play(sfxRayGlide, false);
+			}
 		}
 		break;
 	}

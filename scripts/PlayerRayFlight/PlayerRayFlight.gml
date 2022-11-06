@@ -3,8 +3,6 @@
 function PlayerRayFlight(){
 	if !RayFlightState return;
 	
-	Animation = AnimRayGlideUp;
-	
 	// Stop on collision with left wall
 	var FindWall = tile_find_h(PosX - RadiusX, PosY, false, Layer);
 	if  FindWall[0] <= 0
@@ -34,7 +32,7 @@ function PlayerRayFlight(){
 	// Stop if not holding the jump button
 	if (!Input.ABC) {
 		RayFlightState = false;
-		SSpinning		= true;
+		Spinning		= true;
 		Animation = AnimSpin;
 		return;
 	}
@@ -52,14 +50,33 @@ function PlayerRayFlight(){
 	if ((Xsp > 0 and Input.LeftPress) || (Xsp < 0 and Input.RightPress) ) {
 		// If you're turning upwards in the glide, get a speed boost
 		if (RayGlideAngle < -22.5) {
-			RayGlideSpeed += RayGlideBoost;
-			audio_sfx_play(sfxRelease, false);
+			if (BarrierType == BarrierFlame) {
+				RayGlideSpeed += RayGlideBoost * 1.5;
+				audio_sfx_play(sfxFlameBarrierDash, false);
+				// Update barrier
+				with Barrier
+				{
+					object_set_depth(Player, 1);
+					animation_play(spr_obj_barrier_flame_dash, 2, 0);
+				}
+			} else if (BarrierType == BarrierWater) {
+				RayGlideSpeed += RayGlideBoost * 1.5;
+				// Update barrier
+				with Barrier
+				{
+					animation_play(spr_obj_barrier_water_drop, [6, 12, 0], 0);
+				}
+
+				audio_sfx_play(sfxWaterBarrierBounce, false);
+			} else {
+				RayGlideSpeed += RayGlideBoost;
+				audio_sfx_play(sfxRelease, false);
+			}
 		}
-		show_debug_message("Turning up");
 		RayGlideAngleDirection = -1;
 	} else if ((Xsp > 0 and Input.RightPress) || (Xsp < 0 and Input.LeftPress)) {
+		
 		RayGlideAngleDirection = 1;
-		show_debug_message("Turning down");
 	}
 	
 	RayGlideAngle -= sign(RayGlideAngleDirection) * RayGlideAngleSpeed;
