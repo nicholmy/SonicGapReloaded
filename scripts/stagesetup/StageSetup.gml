@@ -55,7 +55,7 @@ function StageSetup()
 			GapLevel		 = true;
 			WaterLevel       = 0;
 			WaterEnabled     = false;
-			StageMusic       = TechTree1;
+			StageMusic       = SkyStation_Bonus;
 			AnimatedGraphics = [tex_tsz_anitile, 6];
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
 			BottomBoundary   = room_height;

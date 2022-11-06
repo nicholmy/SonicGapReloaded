@@ -205,6 +205,7 @@ function PlayerJump()
 				Animation	= AnimHammerDrop;
 				audio_sfx_play(sfxDoubleSpinAttack, false);
 		};
+		break;
 		case CharRay:
 		{
 			RadiusX			= DefaultRadiusX;

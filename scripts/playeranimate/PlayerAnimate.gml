@@ -678,6 +678,7 @@ function PlayerAnimate()
 				break;
 			}
 		}
+		break;
 		#endregion
 		
 		#region Ray

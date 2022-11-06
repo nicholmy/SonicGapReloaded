@@ -2,7 +2,7 @@
 function object_act_enemy(enemyType)
 {
 	// Check for overlap with the player (ColHitbox2 -- we're taking Double Spin Attack into account)
-	if !object_check_player(ColHitbox2)
+	if !object_check_player(ColHitbox2) and !object_check_object(HammerDrop_Hitbox)
 	{
 		return false;
 	}
@@ -11,32 +11,36 @@ function object_act_enemy(enemyType)
 	var SpinCheck       = Player.Spinning    or Player.SpindashRev != -1;
 	var InvincibleCheck = Player.SuperState  or Player.InvincibleBonus;
 	var ActionCheck	    = Player.FlightState and floor(Player.PosY) > y or Player.GlideState > GlideFall;
+	var HitboxCheck		= object_check_object(HammerDrop_Hitbox);
 	
 	// Damage enemy
-	if ActionCheck or SpinCheck or InvincibleCheck    
+	if HitboxCheck or ActionCheck or SpinCheck or InvincibleCheck    
 	{	
 		switch enemyType
 		{
 			case EnemyBadnik:
 			{
-				// Make player bounce if they are airborne and not using hammer drop
-				if !Player.Grounded and !Player.HammerState
-				{
-					if floor(Player.PosY) > y or Player.Ysp < 0
+				if (!HitboxCheck) {
+					// Make player bounce if they are airborne and not using hammer drop
+					if !Player.Grounded and !Player.HammerState
 					{
-						Player.Ysp -= 1 * sign(Player.Ysp);	
-					}
-					else if Player.Ysp > 0
-					{
-						Player.Ysp = -Player.Ysp;
+						if floor(Player.PosY) > y or Player.Ysp < 0
+						{
+							Player.Ysp -= 1 * sign(Player.Ysp);	
+						}
+						else if Player.Ysp > 0
+						{
+							Player.Ysp = -Player.Ysp;
+						}
 					}
 				}
-			
+				
 				// Increase player score
-				if Player.Spinning or Player.SpindashRev != -1
+				if HitboxCheck or Player.Spinning or Player.SpindashRev != -1
 				{
 					Player.ScoreCombo++;
 				}
+				
 				var  Object = instance_create(x, y, ScoreObject);
 				with Object
 				{
@@ -58,7 +62,7 @@ function object_act_enemy(enemyType)
 			break;
 			case EnemyBoss:
 			{
-				if !Player.Grounded and !Player.HammerState
+				if !Player.Grounded
 				{
 					if Player.GlideState
 					{
@@ -79,6 +83,12 @@ function object_act_enemy(enemyType)
 						}
 					}
 					
+					if (Player.HammerState) {
+						Player.HammerState = false;
+						Player.Animation = AnimSpin;
+						Player.Spinning = true;
+						Player.Ysp = 8;
+					}
 					Player.Xsp *= -0.5;
 					Player.Ysp *= -0.5;
 				}

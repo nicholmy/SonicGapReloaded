@@ -14,6 +14,7 @@ if (object_check_player(ColSolidU)) {
 	Player.Animation = AnimSpring;
 	Player.ClimbState = false;
 	Player.OnObject = false;
+	Player.Jumping = false;
 	
 	audio_sfx_play(sfxSpring, false);
 	startBounce = true;

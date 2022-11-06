@@ -14,8 +14,9 @@
 		var BasicCheck = Player.BarrierType > BarrierNormal;
 		var TailsCheck = Player.FlightState	and floor(Player.PosY) > y;
 		var KnuxCheck  = Player.GlideState == GlideAir and sign(x - floor(Player.PosX)) == sign(Player.Facing);
+		var MightyCheck = global.Character == CharMighty and (Player.Animation == AnimSpin or Player.Animation == AnimCrouch or Player.Animation == AnimHammerDrop)
 		
-		if BasicCheck or TailsCheck or KnuxCheck
+		if BasicCheck or TailsCheck or KnuxCheck or MightyCheck
 		{
 			// Reflect projectile
 			if !State
@@ -28,6 +29,7 @@
 				Ysp    = dsin(Angle) * -8;
 				Grv    = 0;
 				State += 1;
+				audio_sfx_play(sfxSpikeTap, false);
 			}
 		}
 		else if !Player.DoubleSpinAttack
