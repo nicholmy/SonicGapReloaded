@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Stage Objects/Tech Tree/Sprites.yy",
+    "name": "Swinging Claw",
+    "path": "folders/Stage Objects/Tech Tree/Sprites/Swinging Claw.yy",
   },
 }

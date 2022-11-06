@@ -80,7 +80,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Stage Objects/Tech Tree/Sprites.yy",
+    "name": "Electric Shocker",
+    "path": "folders/Stage Objects/Tech Tree/Sprites/Electric Shocker.yy",
   },
 }

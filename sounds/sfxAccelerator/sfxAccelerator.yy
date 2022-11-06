@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_object_accelerator",
+  "name": "sfxAccelerator",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,10 +14,10 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_object_accelerator",
-  "duration": 0.0,
+  "soundFile": "sfxAccelerator",
+  "duration": 0.896576,
   "parent": {
-    "name": "Objects",
-    "path": "folders/Audio/Objects.yy",
+    "name": "SFX",
+    "path": "folders/Audio/SFX.yy",
   },
 }
