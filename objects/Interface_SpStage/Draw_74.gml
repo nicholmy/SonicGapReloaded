@@ -68,7 +68,8 @@
 				// Restart the Stage
 				if PauseValue == 1
 				{
-					global.Lives -= 1; room_restart();						
+					// global.Lives -= 1; 
+					room_restart();						
 				}
 					
 				// Exit to DevMenu
