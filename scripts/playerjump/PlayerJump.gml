@@ -223,7 +223,7 @@ function PlayerJump()
 			RayGlideAngleDirection = -1;
 			
 			// Nosedive if you're holding the direction you're facing
-			if ((Xsp > 0 && Input.Right) || (Xsp < 0 && Input.Left)) { 
+			if (Input.Right || Input.Left) { 
 				/*if (BarrierType == BarrierWater) {
 					// Update barrier
 					with Barrier
