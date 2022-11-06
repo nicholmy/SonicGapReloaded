@@ -4,18 +4,31 @@ animation_play(sprite_index, 8, 0);
 if (object_check_player(ColHitbox)) {
 	if (!Player.Hurt and !Player.Death) {
 		if (Player.RayFlightState) {
-			Player.Facing = 1;
-			Player.PosX += 2;
+			Player.Facing = 1 * image_xscale;
+			Player.PosX += 2 * image_xscale;
 		} else {
-			if (Player.Grounded) {
-				if (Player.CollisionMode[0] == 0) {
-					Player.Gsp += (Player.Gsp >= 0) ? 0.3 : 0.06 
-				} else if (Player.CollisionMode[0] == 2) {
-					Player.Gsp -= (Player.Gsp >= 0) ? 0.06 : 0.3
+			if (image_xscale == 1) {
+				if (Player.Grounded) {
+					if (Player.CollisionMode[0] == 0) {
+						Player.Gsp += ((Player.Gsp >= 0) ? 0.3 : 0.06) 
+					} else if (Player.CollisionMode[0] == 2) {
+						Player.Gsp -= ((Player.Gsp >= 0) ? 0.06 : 0.3)
+					}
+				} else {
+					if (Player.Xsp >= 0) Player.Xsp += 0.3  
+					if (Player.Xsp < 0) Player.Xsp += 0.06
 				}
 			} else {
-				if (Player.Xsp >= 0) Player.Xsp += 0.3 
-				if (Player.Xsp < 0) Player.Xsp += 0.06
+				if (Player.Grounded) {
+					if (Player.CollisionMode[0] == 0) {
+						Player.Gsp -= ((Player.Gsp < 0) ? 0.3 : 0.06) 
+					} else if (Player.CollisionMode[0] == 2) {
+						Player.Gsp += ((Player.Gsp < 0) ? 0.06 : 0.3)
+					}
+				} else {
+					if (Player.Xsp >= 0) Player.Xsp -= 0.06  
+					if (Player.Xsp < 0) Player.Xsp -= 0.3
+				}
 			}
 		}
 	}

@@ -12,7 +12,7 @@ switch global.Character
 		draw_sprite(spr_knuckles_idle, 28, x, y);
 	break;
 	case CharMighty:
-		draw_sprite(spr_mighty_goal, 10, x, y+6);
+		draw_sprite(spr_mighty_goal, 10, x, y);
 	break;
 	case CharRay:
 		draw_sprite(spr_ray_idle, 19, x, y-1);
