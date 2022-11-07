@@ -54,7 +54,7 @@
             {"id":"1fabd3d5-5b9f-428c-9f3f-f4bbf9edb428","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"68d7c0b9-4b5d-4a5a-8cf2-3a04c4c4c77b","path":"sprites/spr_electricgen_electricity1/spr_electricgen_electricity1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -75,6 +75,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Electric Generator",
-    "path": "folders/Sprites/Gameplay/Gimmicks/Electric Generator.yy",
+    "path": "folders/Stage Objects/Tech Tree/Sprites/Electric Generator.yy",
   },
 }
