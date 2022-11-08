@@ -5,4 +5,5 @@ alarm[0] = 8
 // Set object properties
 object_set_unload(FlagReset);
 object_set_depth(Player, 0);
-object_set_triggerbox(60, 0, -8, 8);
+object_set_hitbox(30, 8);
+//object_set_triggerbox(60, 0, -8, 8);

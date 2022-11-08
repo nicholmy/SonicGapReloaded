@@ -209,7 +209,7 @@
 				var minColor = Player.InvincibleBonus > 0 ? c_blue : c_red
 				var maxColor = Player.InvincibleBonus > 0 ? c_blue : c_green
 				
-				if (Stage.GapChainCount > 0) {
+				if (Stage.GapChainCount > 0 or Stage.GapComboTotal > 0) {
 					draw_set_alpha(1);
 					draw_set_font(Font.FontDefault);
 					
