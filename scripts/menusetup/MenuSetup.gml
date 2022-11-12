@@ -15,7 +15,7 @@ function MenuSetup()
 	StartStage = Screen_SkyStation;
 	
 	// Main Menu
-	menu_add_header(0,    "SONIC GAP RELOADED DEMO" + "\n\nMAIN MENU");
+	menu_add_header(0,    "SONIC GAP RELOADED\n\nDEMO V1-1" + "\n\nMAIN MENU");
 	menu_add_option(0, 0, "GAME START",   1);
 	menu_add_option(0, 1, "- -", 3);
 	menu_add_option(0, 2, "OPTIONS",      6);	

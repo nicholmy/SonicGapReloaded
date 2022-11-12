@@ -50,7 +50,7 @@
             {"id":"a5edbd30-5bea-47fb-9bff-bbd8ac189f3f","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f7ccb1ba-7760-4196-96ed-39f3d7e8e82b","path":"sprites/spr_buzzsaw/spr_buzzsaw.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -71,6 +71,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Buzzsaw",
-    "path": "folders/Sprites/Gameplay/Gimmicks/Buzzsaw.yy",
+    "path": "folders/Stage Objects/Tech Tree/Sprites/Buzzsaw.yy",
   },
 }

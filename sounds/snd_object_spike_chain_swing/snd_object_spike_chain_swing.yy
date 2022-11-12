@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_object_spike_chain_swing",
-  "duration": 0.0,
+  "duration": 1.082971,
   "parent": {
     "name": "Objects",
     "path": "folders/Audio/Objects.yy",

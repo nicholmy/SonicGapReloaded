@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Animate
 // You can write your code in this editor
 
 if (!state) {

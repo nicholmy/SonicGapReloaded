@@ -1,5 +1,5 @@
 /// @description Start the shocking
-// You can write your code in this editor
+// Can be flipped upside down
 alarm[0] = shockFreq
 state = 0;
 
