@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (!state and !lockTimer and !Player.Hurt and !Player.Death and object_check_player(ColHitbox)) {
+if (!state and !lockTimer and !Player.Hurt and !Player.Death and object_check_player(ColHitbox) and Player.Ysp > 0) {
 	state = 1;
 	object_set_depth(Player, true);
 	Player.PosX = x;
@@ -13,6 +13,7 @@ if (!state and !lockTimer and !Player.Hurt and !Player.Death and object_check_pl
 	Player.RayFlightState = 0;
 	Player.HammerState = 0;
 	Player.Spinning = true;
+	Player.BarrierIsActive = false;
 
 	alarm[0] = 15;
 }

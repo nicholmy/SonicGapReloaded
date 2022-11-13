@@ -78,6 +78,24 @@ function StageSetup()
 			]
 		}
 		break;
+		// Tutorial Level
+		case Stage_Tutorial:
+		{
+			ZoneName         = "TUTORIAL";
+			ActID            = 0;
+			GapLevel		 = false;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = SkyStation_Menu;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = 1040;
+			
+			NextStage	 = Screen_DevMenu;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
 		// Star Station
 		case Stage_StarStation:
 		{
@@ -92,7 +110,7 @@ function StageSetup()
 			BottomBoundary   = room_height;
 			ScoreTarget		 = 3000;
 			
-			NextStage	 = Screen_DevMenu;
+			NextStage	 = Screen_SkyStation;
 			SaveProgress = false;
 			IsFinalStage = false;
 			
@@ -121,7 +139,7 @@ function StageSetup()
 			BottomBoundary   = room_height;
 			ScoreTarget		 = 5000;
 			
-			NextStage	 = Screen_DevMenu;
+			NextStage	 = Screen_SkyStation;
 			SaveProgress = false;
 			IsFinalStage = false;
 			

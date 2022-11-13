@@ -8,7 +8,7 @@ Player.Ysp = bounceStrength[bounceState];
 Player.Jumping = false;
 Player.AirLock = false;
 
-audio_sfx_play(sfxSpring, false);
+audio_sfx_play(sfxMushroomBounce, false);
 lockTimer = 15;
 bounceState = (bounceState + 1) mod 3;
 

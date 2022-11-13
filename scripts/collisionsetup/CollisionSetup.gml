@@ -12,6 +12,9 @@ function CollisionSetup()
 		case Stage_TestGap:
 			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
 		break;
+		case Stage_Tutorial:
+			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
+		break;
 		case Stage_StarStation:
 			tile_data_set("", TileCount, "CollisionLayerA", "CollisionLayerB");
 		break;

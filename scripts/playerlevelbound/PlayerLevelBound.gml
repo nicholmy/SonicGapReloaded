@@ -17,12 +17,19 @@ function PlayerLevelBound()
 			PosX = Stage.RightBoundary - 24;
 		}
 	}
+	else if floor(PosX + Xsp) > Stage.RightBoundary -16
+	{
+		Gsp  = 0;
+		Xsp  = 0;
+		PosX = Stage.RightBoundary -16;
+	}
+	/*
 	else if floor(PosX + Xsp) > Stage.RightBoundary + 40
 	{
 		Gsp  = 0;
 		Xsp  = 0;
 		PosX = Stage.RightBoundary + 40;
-	}
+	}*/
 	
 	// Prevent us from leaving top boundary if flying or climbing
 	if FlightState or ClimbState

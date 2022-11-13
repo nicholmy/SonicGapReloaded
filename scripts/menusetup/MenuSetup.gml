@@ -46,7 +46,7 @@ function MenuSetup()
 		
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "TEST STAGE",  Stage_TSZ);
+	menu_add_option(4, 0, "TUTORIAL",  Stage_Tutorial);
 	menu_add_option(4, 1, "STAR STATION 1", Stage_StarStation);
 	menu_add_option(4, 2, "STAR STATION 2", Stage_StarStation2);
 	menu_add_option(4, 3, "GAP STAGE", Stage_TestGap);
