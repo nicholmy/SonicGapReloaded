@@ -138,14 +138,14 @@
 			// Update right boundary
 			if RightBoundary < TargetRightBoundary
 			{
-				RightBoundary = min(RightBoundary + 2, TargetRightBoundary)
+				RightBoundary = min(RightBoundary + 4, TargetRightBoundary)
 			}
 			else if RightBoundary > TargetRightBoundary
 			{
 				if Camera.ViewX + global.Width >= TargetRightBoundary
 				{
 					RightBoundary = Camera.ViewX + global.Width;
-					RightBoundary = max(TargetRightBoundary, RightBoundary - 2);
+					RightBoundary = max(TargetRightBoundary, RightBoundary - 4);
 				}
 				else if Camera.ViewX + global.Width <= TargetRightBoundary
 				{

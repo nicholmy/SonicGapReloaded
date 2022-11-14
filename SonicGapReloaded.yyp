@@ -536,7 +536,7 @@
     {"id":{"name":"PlayerKnuxGlideControl","path":"scripts/PlayerKnuxGlideControl/PlayerKnuxGlideControl.yy",},"order":37,},
     {"id":{"name":"gui_hud_time","path":"sprites/gui_hud_time/gui_hud_time.yy",},"order":3,},
     {"id":{"name":"GameSetup","path":"scripts/GameSetup/GameSetup.yy",},"order":4,},
-    {"id":{"name":"ClearPanel_Transition","path":"objects/ClearPanel_Transition/ClearPanel_Transition.yy",},"order":45,},
+    {"id":{"name":"ClearPanel_Modern","path":"objects/ClearPanel_Modern/ClearPanel_Modern.yy",},"order":45,},
     {"id":{"name":"spr_knuckles_climb","path":"sprites/spr_knuckles_climb/spr_knuckles_climb.yy",},"order":4,},
     {"id":{"name":"SpStageSetup","path":"scripts/SpStageSetup/SpStageSetup.yy",},"order":9,},
     {"id":{"name":"TestStage","path":"sounds/TestStage/TestStage.yy",},"order":33,},

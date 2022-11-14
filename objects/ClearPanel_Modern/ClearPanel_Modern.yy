@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "ClearPanel_Transition",
+  "name": "ClearPanel_Modern",
   "spriteId": {
     "name": "spr_obj_clearpanel_start_st",
     "path": "sprites/spr_obj_clearpanel_start_st/spr_obj_clearpanel_start_st.yy",
@@ -34,6 +34,7 @@
         "\"Sonic & Tails\"",
         "\"Knuckles\"",
       ],"multiselect":false,"filters":[],},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"nextAct","varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},
   ],
   "overriddenProperties": [],
   "parent": {

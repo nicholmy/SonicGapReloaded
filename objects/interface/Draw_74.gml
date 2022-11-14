@@ -268,41 +268,42 @@
 						ResultsValue[9] = Player.Rings * 100;
 			
 						// Calculate time bonus
-						if Stage.Time >= 35940
+						/*if Stage.Time >= 35940
 						{
 							ResultsValue[10] = 100000;
 						}
-						else if Stage.Time < 1800
+						else*/ 
+						if Stage.Time < 1800
 						{
-							ResultsValue[10] = 50000;
+							ResultsValue[10] = 10000;
 						}			
 						else if Stage.Time >= 1800 and Stage.Time < 2700
 						{
-							ResultsValue[10] = 10000;
+							ResultsValue[10] = 5000;
 						}
 						else
 						{
 							switch Stage.Time div 1800
 							{
 								case 0:			
-									ResultsValue[10] = 5000; 
+									ResultsValue[10] = 4000; 
 								break;
 								case 1:			
-									ResultsValue[10] = 5000;  
-								break;
-								case 2:			
 									ResultsValue[10] = 4000;  
 								break;
-								case 3:			
+								case 2:			
 									ResultsValue[10] = 3000;  
+								break;
+								case 3:			
+									ResultsValue[10] = 2000;  
 								break;
 								case 4: 
 								case 5: 
-									ResultsValue[10] = 2000;  
+									ResultsValue[10] = 1000;  
 								break;
 								case 6: 
 								case 7: 
-									ResultsValue[10] = 1000;  
+									ResultsValue[10] = 500;  
 								break;
 								case 8: 
 								case 9: 
@@ -406,10 +407,15 @@
 						// No continue
 						if (++ResultsValue[0]) == 180
 						{
-							fade_perform(ModeInto, BlendBlack, 1);
+							if (!Stage.NextActFlag) {
+								fade_perform(ModeInto, BlendBlack, 1);
 					
-							Stage.UpdateObjects       = false;
-							Renderer.UpdateAnimations = false;
+								Stage.UpdateObjects       = false;
+								Renderer.UpdateAnimations = false;
+							} else {
+								ResultsValue[8] = 4;
+								ResultsValue[0] = 0;
+							}
 						}
 					}
 					break;
@@ -429,11 +435,62 @@
 						}
 						else if (++ResultsValue[0]) == 260
 						{
-							fade_perform(ModeInto, BlendBlack, 1);
+							if (!Stage.NextActFlag) {
+								fade_perform(ModeInto, BlendBlack, 1);
 					
-							Stage.UpdateObjects       = false;
-							Renderer.UpdateAnimations = false;
+								Stage.UpdateObjects       = false;
+								Renderer.UpdateAnimations = false;
+							} else {
+								ResultsValue[8] = 4;
+								ResultsValue[0] = 0;
+							}
 						}
+					}
+					break;
+					// Move the results out the screen
+					case 4:
+					{
+						//var maxDist = 400;
+						if ((++ResultsValue[0]) < 60) {
+							ResultsValue[1] += 20;
+							ResultsValue[2] += 20;
+							ResultsValue[3] += 20;
+							ResultsValue[4] += 20;
+							ResultsValue[5] += 20;
+							ResultsValue[6] += 20;
+							ResultsValue[7] += 20;
+						} else {
+							ResultsValue[8] = 5;
+							
+							Stage.IsFinished = 0;
+							Stage.ActID++;
+							
+							if (Stage.StageMusic2) {
+								audio_bgm_play(AudioPrimary, Stage.StageMusic2);
+							} else {
+								audio_bgm_play(AudioPrimary, Stage.StageMusic);
+							}
+							
+							// Trigger the title card
+							CardValue[0] = 0;
+							CardValue[1] = 0;	
+							CardValue[2] = global.Height / 2;
+							CardValue[3] = -108;
+							CardValue[4] = -100;
+							CardValue[5] = 1;
+							CardValue[6] = -48;
+							CardValue[7] = global.Width * 2 + 128;
+							
+							// Save these for the end of the title card
+							Stage.Time = 0;
+							Stage.TimeEnabled = true;
+ 						}
+					}
+					break;
+					// Reset the act
+					case 5:
+					{
+						
 					}
 					break;
 				}
@@ -632,16 +689,22 @@
 					else
 					{
 						// Start gameplay
-						if CardValue[0] == 60
+						if CardValue[0] == 60 and !Stage.NextActFlag
 						{
 							fade_perform(ModeFrom, BlendBlack, 1);
 						}
-						if !fade_check(StateActive)
+						if !fade_check(StateActive) or (CardValue[0] == 60 and Stage.NextActFlag)
 						{
 							Input.IgnoreInput         = false;
 							Stage.TimeEnabled         = true;
 							Stage.UpdateObjects       = true;
 							Renderer.UpdateAnimations = true;
+							
+							// Reset the boundaries (in case of act transition)
+							Stage.TargetTopBoundary = 0;
+							Stage.TargetRightBoundary = room_width;
+							Stage.TargetBottomBoundary = room_height;
+							Stage.NextActFlag = false;
 						}
 				
 						// Move ribbon

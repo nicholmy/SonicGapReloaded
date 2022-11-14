@@ -22,6 +22,7 @@
 		UpdateObjects  =  false;
 		EventMessage = "HEAD TO THE EXIT!";
 		EventTimer = 0;
+		NextActFlag = false;
 		
 		CurrentGapID   = -1;
 		CurrentGapName = "";

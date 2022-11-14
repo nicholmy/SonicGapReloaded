@@ -15,6 +15,7 @@
 		{
 			if object_check_player(ColTrigger)
 			{
+				Stage.NextActFlag = nextAct;
 				// Make player exit their super form
 				if Player.SuperState
 				{
@@ -30,6 +31,14 @@
 				// Launch the sign
 				YSpeed = max(-abs(Player.Xsp) / 1.5, -8);
 				
+				// Make the goal point the checkpoint
+				global.StarPostData[0] = x;
+				global.StarPostData[1] = y + sprite_get_height(sprite_index) div 2 - Player.DefaultRadiusY - 1;
+				global.StarPostData[2] = Stage.Time;
+				global.StarPostData[3] = room_height;
+				global.StarPostData[4] = id;
+				global.Score		   = Player.Score;
+				
 				// Increment state
 				State++;
 			}
@@ -39,10 +48,25 @@
 		{
 			animation_play(SpriteData[0], 1, 0);
 			
+			if (place_meeting(x, y-1, Player) and YSpeed > 0 and Player.Ysp < 0){
+				YSpeed = Player.Ysp;
+				XSpeed = (x - Player.PosX)/6;
+				audio_sfx_play(sfxBumper, false);
+				instance_create(x, y, ScoreObject);
+			}
+			
+			if (x < Camera.ViewX + sprite_width/2) {
+				 XSpeed = 2;
+	        }  
+	        if (x > Camera.ViewX+global.Width - sprite_width/2){
+	            XSpeed = -2;
+	        }   
+			
 			YSpeed += FallGrav 
 		    if(YSpeed > 4){
 		        YSpeed = 4;
 		    }
+			x += XSpeed;
 		    y  += YSpeed;
 			
 			// If the sign detects the ground underneath...
@@ -88,21 +112,27 @@
 				Stage.IsFinished  = 2;
 					
 				audio_bgm_play(AudioPrimary, ActClear);
+				State = 4;
 			}	
 		}
+		//Activated but won't trigger again
+		case 4:
+		{
+		}
+		break;
 	}
 	
 	// Update stage boundaries
-	if Camera.ViewX > x - global.Width * 1.5 + 64
+	if State <= 3 and Camera.ViewX > x - global.Width - 16
 	{
-		if State
+		/*if State
 		{
 			Stage.TargetLeftBoundary = x - (global.Width / 2);
 			Stage.TargetRightBoundary = x + (global.Width / 2);
-		}
-		else
+		}*/
+		if !State
 		{
-			Stage.TargetLeftBoundary  = x - global.Width * 1.5 + 64;
+			Stage.TargetLeftBoundary  = x - global.Width / 2;
 			Stage.TargetRightBoundary = x + global.Width / 2;
 			Stage.TargetBottomBoundary = y + 64;
 		}

@@ -87,6 +87,7 @@ function StageSetup()
 			WaterLevel       = 1440;
 			WaterEnabled     = false;
 			StageMusic       = SkyStation_Menu;
+			StageMusic2      = SkyStation2;
 			AnimatedGraphics = [tex_tsz_anitile, 6];
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
 			BottomBoundary   = 1040;
