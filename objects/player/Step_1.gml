@@ -35,6 +35,7 @@
 				PlayerKnuxGlide();
 				PlayerKnuxClimb();
 			}
+			PlayerAmyHammerState();
 			PlayerResetOnFloor();
 			PlayerHitboxUpdate();
 		}
@@ -62,6 +63,7 @@
 				PlayerMovementRoll();
 				PlayerGroundWallCollision();
 			}
+			PlayerAmyHammerState();
 			PlayerGapComboCheck();
 			PlayerLevelBound();
 			PlayerPosition();

@@ -11,6 +11,8 @@
 				player_damage(false, false, true);
 			}	
 		}
+		
+		AngleTimer = (AngleTimer + 1) mod 360;
 	
 		// Process animated graphics
 		if AnimatedGraphics != noone
@@ -287,7 +289,6 @@
 	
 	#region Process Stage End
 	{
-		
 		if !GapLevel and IsFinished and fade_check(StateMax)
 		{
 			global.Score		   = Player.Score;
@@ -379,7 +380,7 @@
 			}
 		}
 		
-		if (Stage.HighSpeedBonusStart) {
+		if (Stage.HighSpeedBonusStart and Stage.GapLevel) {
 			if (Stage.HighSpeedTimer > 0) Stage.HighSpeedTimer--
 		
 			if (Stage.HighSpeedTimer == 0 and Player.HighspeedBonus > 0 and (abs(Player.Xsp) > 9 or abs(Player.Ysp) > 9)) {
@@ -404,6 +405,8 @@
 		}
 		
 		if (EventTimer > 0) EventTimer--
+		if (CurrentGapTimer > 0) CurrentGapTimer--
 		
+		if (CurrentGapTimer == 0) gap_trigger_fail(false);
 	}
 	#endregion

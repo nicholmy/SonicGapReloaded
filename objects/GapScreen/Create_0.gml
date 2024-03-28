@@ -37,5 +37,6 @@
 		// Technology Tree
 		case 2:
 			instance_create(x, y, obj_BG_TechTree_Act2);
+			instance_create(x, y, PollenMaker_White);
 		break;
 	}

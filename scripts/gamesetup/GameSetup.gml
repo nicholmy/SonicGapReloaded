@@ -67,6 +67,7 @@ function GameSetup()
 	global.SpecialRings	   = 0;
 	global.RedRings		   = 0;
 	global.ZoneID		   = 0;
+	global.CurrentAct      = 0;
 	global.ReturnRoom       = 0;
 	//global.LevelFinished   = 0;
 	global.SpecialScore    = 0;

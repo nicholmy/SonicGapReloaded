@@ -7,3 +7,4 @@ object_set_unload(FlagPause);
 object_set_depth(Player, 0);
 // Setup this object
 object_set_solidbox(16, 12, false);
+object_set_hitbox(16, 12);

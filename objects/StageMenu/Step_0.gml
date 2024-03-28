@@ -13,7 +13,7 @@
 			{
 				if Input.APress or Input.StartPress
 				{
-					if (OptionID == 4) {
+					if (OptionID == 5) {
 						room_goto(Screen_DevMenu);
 					}
 				}
@@ -34,6 +34,7 @@
 			// Gap & Special Level Menu
 			case 2:
 			case 3:
+			case 5:
 			{
 				if Input.APress or Input.StartPress
 				{	

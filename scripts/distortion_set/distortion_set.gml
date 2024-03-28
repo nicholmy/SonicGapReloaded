@@ -1,7 +1,7 @@
 /// @function distortion_set(data1,data2,speed,[layers],[datarange])
 function distortion_set(data1,data2,speed,layers,datarange)
 {	
-	try
+	/*try
 	{
 		// Set mode
 		if instance_exists(Stage)
@@ -60,5 +60,5 @@ function distortion_set(data1,data2,speed,layers,datarange)
 							+ "You may also get this message because you configured the distortion incorrectly. \n"
 							+ "=============================================");
 		DistortionEffect[0] = noone;
-	}
+	}*/
 }

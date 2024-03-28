@@ -15,6 +15,8 @@
 		{
 			if object_check_player(ColTrigger)
 			{
+				Stage.NextActFlag = nextAct;
+				
 				// Make player exit their super form
 				if Player.SuperState
 				{

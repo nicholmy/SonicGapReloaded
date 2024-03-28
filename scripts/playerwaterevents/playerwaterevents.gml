@@ -125,7 +125,7 @@ function PlayerWaterEvents()
 					}
 					else if InvincibleBonus
 					{
-						audio_bgm_play(AudioPrimary, Invincibility);
+						audio_bgm_play(AudioPrimary, Invincibility2);
 					}
 					else
 					{

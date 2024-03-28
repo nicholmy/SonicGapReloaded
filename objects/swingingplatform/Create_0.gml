@@ -14,6 +14,12 @@
 			SpriteData   = [spr_obj_swing_tsz_platform, spr_obj_swing_tsz_chain, spr_obj_swing_tsz_pendulum];
 		}
 		break;
+		case Stage_TechTreeAmy:
+		{
+			var Solidbox = [24, 8];
+			SpriteData   = [spr_obj_swing_tsz_platform, spr_obj_swing_tsz_chain, spr_obj_swing_tsz_pendulum];
+		}
+		break;
 		default:
 		{
 			var Solidbox = [0, 0];

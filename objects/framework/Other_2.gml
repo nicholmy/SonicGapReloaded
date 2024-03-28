@@ -46,6 +46,7 @@
 		#macro CharKnuckles	    2
 		#macro CharMighty		3
 		#macro CharRay			4
+		#macro CharAmy			5
 		#macro ClimbJump	   -1
 		#macro ClimbWall        1
 		#macro ClimbLedge		2
@@ -100,6 +101,11 @@
 		#macro AnimRayGlideUp	34
 		#macro AnimRayGlideTurn	35
 		#macro AnimRayGlideDown 36
+		#macro AnimHang			37
+		#macro AnimSwing		38
+		#macro AnimHammerJump	39
+		#macro AnimHammerRush	40
+		#macro AnimHammerSpring 41
 	
 		// Collision macro
 		#macro ColHitbox  0

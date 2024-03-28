@@ -10,7 +10,7 @@ function object_act_enemy(enemyType)
 	// Check if player can damage our enemy
 	var SpinCheck       = Player.Spinning    or Player.SpindashRev != -1;
 	var InvincibleCheck = Player.SuperState  or Player.InvincibleBonus;
-	var ActionCheck	    = Player.FlightState and floor(Player.PosY) > y or Player.GlideState > GlideFall;
+	var ActionCheck	    = (Player.FlightState and floor(Player.PosY) > y or Player.GlideState > GlideFall) or Player.Animation == AnimHammerRush or Player.Animation == AnimHammerSpring or Player.IsAmyHammerJumping;
 	var HitboxCheck		= object_check_object(HammerDrop_Hitbox);
 	
 	// Damage enemy

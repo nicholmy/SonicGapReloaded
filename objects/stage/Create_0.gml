@@ -19,16 +19,20 @@
 		TimeEnabled	   =  0;
 		IsBossfight    = -1;
 		OscillateAngle = -2.8125;
+		AngleTimer     =  0;
 		UpdateObjects  =  false;
 		EventMessage = "HEAD TO THE EXIT!";
 		EventTimer = 0;
 		NextActFlag = false;
+		NextAct = false;
+		ActID = global.CurrentAct;
 		
 		CurrentGapID   = -1;
 		CurrentGapName = "";
 		CurrentGapType = -1; // 0 - Ramp, 1 - Transfer
 		CurrentGapState = -1;
 		CurrentTriggerID = -1;
+		CurrentGapTimer = 0;
 		HighestChain = 0;
 		GapChainCount = 0;
 		GapComboTotal = 0;
@@ -79,6 +83,10 @@
 		DeathBoundary        = BottomBoundary;
 	
 		// Play stage music
-		audio_bgm_play(AudioPrimary, StageMusic);
+		if (global.CurrentAct == 1 and StageMusic2) {
+			audio_bgm_play(AudioPrimary, StageMusic2);
+		} else {
+			audio_bgm_play(AudioPrimary, StageMusic);
+		}
 	}
 	#endregion

@@ -25,8 +25,14 @@
 			Player.Gsp		  = Player.Xsp;
 			Player.Pushing    = false;
 			Player.GroundLock = 16;
-			Player.Animation  = Player.Spinning ? AnimSpin : AnimMove;
 			
+			if (Player.Animation == AnimHammerRush) {
+				Player.Animation = AnimHammerRush;
+				//Player.Spinning = false;
+			} else {
+				Player.Animation  = Player.Spinning ? AnimSpin : AnimMove;
+			}
+				
 			animation_reset(1);
 			audio_sfx_play(sfxSpring, false);
 		}

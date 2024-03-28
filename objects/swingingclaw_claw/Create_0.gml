@@ -13,6 +13,7 @@ isGrabbing = false;
 lockTimer = 0;
 playerOffsetX = 0;
 playerOffsetY = 24;
+grabTime = 0;
 
 object_set_unload(FlagReset);
 object_set_triggerbox(-24, 24, -5, 25);

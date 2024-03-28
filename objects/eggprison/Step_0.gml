@@ -8,6 +8,7 @@
 			// Check if the button has been pressed
 			if ButtonObj.State > 0
 			{
+				Stage.NextActFlag = nextAct;
 				// Make player exit their super form
 				if Player.SuperState
 				{
@@ -16,7 +17,7 @@
 				}
 				
 				Stage.TimeEnabled = false;
-				Input.IgnoreInput = true;
+				//Input.IgnoreInput = true;
 				Stage.IsFinished  = 1;
 
 				// Increment state
@@ -28,7 +29,7 @@
 		case 1: 
 		{
 			// Force player movement
-			Input.Right = true;
+			//Input.Right = true;
 
 			// Spawn explosions for 60 frames
 			if (--StateTimer)
@@ -122,4 +123,5 @@
 			Stage.TargetLeftBoundary = x - global.Width / 2;
 		}
 		Stage.TargetRightBoundary = x + global.Width / 2;
+		Stage.TargetBottomBoundary = y + 64;
 	}

@@ -27,6 +27,13 @@ function PlayerJump()
 			}
 			DropdashRev = -1;
 		}
+		
+		// Update double spin attack flag for Amy (Sonic's doesn't reset)
+		if (DoubleSpinAttack > SpinReady and global.Character == CharAmy) {
+			Animation = AnimSpin;
+			animation_set(spr_amy_spin, image_index);
+			DoubleSpinAttack = SpinReady;
+		}
 	}
 	
 	/* Everything below is special mid-jump actions */
@@ -71,7 +78,7 @@ function PlayerJump()
 				// Perform double spin attack
 				if !BarrierType and !SuperState and !InvincibleBonus
 				{
-					if global.DSpinAttackEnabled and DoubleSpinAttack == SpinReady
+					if DoubleSpinAttack == SpinReady
 					{
 						AirLock			 = false;
 						DoubleSpinAttack = SpinActive;
@@ -256,6 +263,77 @@ function PlayerJump()
 				RayGlideAngle = 45;	
 			} else {
 				audio_sfx_play(sfxRayGlide, false);
+			}
+		}
+		break;
+		case CharAmy:
+		{	
+			// Perform double spin attack
+			if DoubleSpinAttack == SpinReady
+			{
+				AirLock			 = false;
+				DoubleSpinAttack = SpinActive;
+						
+				//instance_create(PosX, PosY, DoubleSpinShield);
+						
+				Animation = AnimHammerJump;
+				animation_set(spr_amy_hammerjump, image_index);
+				instance_create(PosX, PosY, HammerJumpHitbox);
+				audio_sfx_play(sfxDoubleSpinAttack, false);
+						
+			}
+				
+				
+			// Perform dropdash
+			if DropdashFlag == DashReady
+			{
+				AirLock      = false;
+				DropdashFlag = DashActive;
+			}
+			
+			// Perform barrier action
+			if !(InvincibleBonus or BarrierIsActive or SuperState)
+			{	
+				BarrierIsActive = true;
+				
+				switch BarrierType
+				{
+					case BarrierThunder:
+					{	
+						AirLock = false;
+						Ysp		= -5.5;
+						
+						// Create sparkles
+						for (var i = 0; i < 4; i++)
+						{
+							var  Object = instance_create(PosX, PosY, BarrierSparkle);
+							with Object
+							{
+								SparkleID = i;
+							}
+						}
+						
+						audio_sfx_play(sfxThunderBarrierJump, false);
+					}
+					break;
+					/*
+					case BarrierWater:
+					{						
+						AirLock = false;
+						Xsp		= 0;
+						Ysp		= 8;
+						
+						// Update barrier
+						with Barrier
+						{
+							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0);
+						}
+
+						audio_sfx_play(sfxWaterBarrierBounce, false);
+					}
+					break;
+					*/
+				}
 			}
 		}
 		break;

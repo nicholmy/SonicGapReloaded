@@ -40,6 +40,9 @@
 					case CharRay:
 						var Text1 = "RAY____GOT____ALL";
 					break;
+					case CharAmy:
+						var Text1 = "AMY____GOT____ALL";
+					break;
 					default:
 						var Text1 = "CHARACTER____GOT____ALL";
 				}
@@ -100,6 +103,9 @@
 				break;
 				case CharRay:
 					var Text1 = "RAY____GOT____A";
+				break;
+				case CharAmy:
+					var Text1 = "AMY____GOT____A";
 				break;
 				default:
 					var Text1 = "CHARACTER____GOT____A";

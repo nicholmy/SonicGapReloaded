@@ -1,5 +1,14 @@
 function PlayerGeneralUpdate()
 {
+	// Handle generating dust
+	if (DustTimer and DustTimer mod 5 == 0 and DustTimer > 0) {
+		instance_create(PosX, PosY, Barrel_Dust);
+	}
+	
+	if (DustTimer > 0) {
+		DustTimer--;
+	}
+	
 	// Handle inv-frames timer
 	if InvincibilityFrames and !Hurt
 	{
@@ -9,10 +18,14 @@ function PlayerGeneralUpdate()
 	// Handle double spin attack timer
 	if DoubleSpinAttack > SpinReady		// SpinReady is -1, so > -1
 	{
-		if (++DoubleSpinAttack) > 14
+		if (++DoubleSpinAttack) > 14 and global.Character == CharSonic
 		{
 			DoubleSpinAttack = SpinRecharge;
 		}
+	}
+	
+	if (global.Character == CharAmy and Animation != AnimHammerSpring and Animation != AnimHammerJump and Animation != AnimDropdash) {
+		DoubleSpinAttack = SpinReady;
 	}
 	
 	// Handle highspeed bonus timer
@@ -32,7 +45,7 @@ function PlayerGeneralUpdate()
 	{
 		if !(--InvincibleBonus)
 		{
-			if audio_bgm_is_playing(Invincibility)
+			if audio_bgm_is_playing(Invincibility2)
 			{
 				audio_bgm_play(AudioPrimary, Stage.StageMusic);
 			}

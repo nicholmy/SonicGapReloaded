@@ -19,8 +19,8 @@ function savedata_reset(){
 	// 1 = Unlocked
 	// 2 = Cleared
 	global.SpecialRingList = [
-		[0,0,0,0,0,0,0,0,0],
-		[0,0,0,0,0,0,0,0,0]
+		[0,0,0,0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0,0,0,0]
 	];
 	global.RedRingList = [
 		[0,0,0,0,0],

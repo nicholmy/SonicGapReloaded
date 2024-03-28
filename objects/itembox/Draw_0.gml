@@ -14,5 +14,6 @@
 	}
 	else if State and State < 3
 	{
+		//depth = -100;
 		draw_sprite(spr_obj_itembox_card, CardSprite, floor(CardX), floor(CardY));
 	}

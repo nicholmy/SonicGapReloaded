@@ -7,6 +7,11 @@ function SpStageSetup()
 	IsFinalStage should only be used for the stage beating which  
 	should mark the game in current saveslot as completed */
 	
+	// Special Stage Types:
+	// 0 - Get to the exit
+	// 1 - Collect all rings
+	// 2 - Defeat all enemies
+	// 3 - Get the disappearing rings
 	switch room 
 	{	
 		case SpStage_Test:
@@ -178,6 +183,103 @@ function SpStageSetup()
 			MaxTime			 = 3000;
 			SpecialStageType = 3;
 			RingsLeft		 = 10;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
+		case SpStage_TT_2:
+		{
+			ZoneName         = "SPECIAL____STAGE";
+			ActID            = 0;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = TechTree_Special;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			
+			MaxTime			 = 2100;
+			SpecialStageType = 1;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
+		case SpStage_TT_3:
+		{
+			ZoneName         = "SPECIAL____STAGE";
+			ActID            = 0;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = TechTree_Special;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			
+			MaxTime			 = 1800;
+			SpecialStageType = 2;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
+		case SpStage_TT_4:
+		{
+			ZoneName         = "SPECIAL____STAGE";
+			ActID            = 0;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = TechTree_Special;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			
+			MaxTime			 = 3800;
+			SpecialStageType = 3;
+			RingsLeft		 = 15;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
+		case SpStage_TT_5:
+		{
+			ZoneName         = "SPECIAL____STAGE";
+			ActID            = 0;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = TechTree_Special;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			
+			MaxTime			 = 3000;
+			SpecialStageType = 3;
+			RingsLeft		 = 15;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
+		case SpStage_TT_6:
+		{
+			ZoneName         = "SPECIAL____STAGE";
+			ActID            = 0;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = TechTree_Special;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			
+			MaxTime			 = 1500;
+			SpecialStageType = 2;
 			
 			NextStage	 = Screen_TechTree;
 			SaveProgress = false;

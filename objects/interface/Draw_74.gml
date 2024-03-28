@@ -157,6 +157,7 @@
 			{
 				var TimeString = string(Min) + "'" + (Sec > 9 ? "" : "0") + string(Sec) + ";" + (Msc > 9 ? "" : "0") + string(Msc);
 			}
+			
 			draw_set_halign(fa_left);
 	
 			draw_text(X + 60, Y + 25, TimeString);
@@ -206,8 +207,8 @@
 				var barYTop = Y + global.Height - 7
 				var barWidth = 64
 				var barHeight = 8
-				var minColor = Player.InvincibleBonus > 0 ? c_blue : c_red
-				var maxColor = Player.InvincibleBonus > 0 ? c_blue : c_green
+				var minColor = Player.GapComboInvincible > 0 ? c_blue : c_red
+				var maxColor = Player.GapComboInvincible > 0 ? c_blue : c_green
 				
 				if (Stage.GapChainCount > 0 or Stage.GapComboTotal > 0) {
 					draw_set_alpha(1);
@@ -228,11 +229,12 @@
 					
 					draw_healthbar(barXCenter - barWidth/2, barYTop, barXCenter + barWidth/2, barYTop - barHeight, Stage.ComboTimeLeft / Stage.MaxComboTime * 100, c_black, minColor, maxColor, 0, true, true)
 				}
-				
-				draw_set_halign(fa_center);
-				if (Stage.EventMessage != "" and Stage.EventTimer > 0)
-					draw_text(global.Width/2, barYTop - 16, Stage.EventMessage)
 			}
+			draw_set_font(Font.FontDefault);
+			draw_set_halign(fa_center);
+			if (Stage.EventMessage != "" and Stage.EventTimer > 0)
+				draw_text(X + global.Width/2, Y + global.Height - 23, Stage.EventMessage);
+			
 		}
 	}
 	#endregion
@@ -460,10 +462,20 @@
 							ResultsValue[6] += 20;
 							ResultsValue[7] += 20;
 						} else {
-							ResultsValue[8] = 5;
+							// Reset the position of the results
+							ResultsValue[1]  = 400;
+							ResultsValue[2]  = 400;
+							ResultsValue[3]  = 400;
+							ResultsValue[4]  = 400;
+							ResultsValue[5]  = 440;
+							ResultsValue[6]  = 480;
+							ResultsValue[7]  = 560;
+							
+							ResultsValue[8] = 0;
 							
 							Stage.IsFinished = 0;
 							Stage.ActID++;
+							global.CurrentAct++;
 							
 							if (Stage.StageMusic2) {
 								audio_bgm_play(AudioPrimary, Stage.StageMusic2);
@@ -484,6 +496,7 @@
 							// Save these for the end of the title card
 							Stage.Time = 0;
 							Stage.TimeEnabled = true;
+							Player.Rings = 0;
  						}
 					}
 					break;
@@ -529,6 +542,12 @@
 					var Icon = gui_icon_sonic;
 				}
 				break;
+				case CharAmy:
+				{
+					var Char = "AMY____GOT";
+					var Icon = gui_icon_amy;
+				}
+				break;
 				default:
 				{
 					var Char = "CHARACTER____GOT";
@@ -544,11 +563,11 @@
 			draw_set_font(Font.FontCard);
 			draw_set_halign(fa_center);
 			
-			draw_sprite(gui_results_head,	   global.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);
-			draw_sprite(gui_results_act,	   Stage.ActID,      CentreX + 46 + ResultsValue[7], CentreY - 23);	
-			draw_sprite(gui_results_score,	   0,			     CentreX - 58 + ResultsValue[4], CentreY + 15);
-			draw_sprite(gui_results_timebonus, 0,			     CentreX - 38 + ResultsValue[5], CentreY + 31);
-			draw_sprite(gui_results_ringbonus, 0,			     CentreX - 38 + ResultsValue[6], CentreY + 47);
+			draw_sprite(gui_results_head,	   global.Character, CentreX + 83 + ResultsValue[1], CentreY - 25);
+			draw_sprite(gui_results_act,	   Stage.ActID,      CentreX + 76 + ResultsValue[7], CentreY - 23);	
+			draw_sprite(gui_results_score,	   0,			     CentreX - 58 + ResultsValue[4], CentreY + 20);
+			draw_sprite(gui_results_timebonus, 0,			     CentreX - 38 + ResultsValue[5], CentreY + 36);
+			draw_sprite(gui_results_ringbonus, 0,			     CentreX - 38 + ResultsValue[6], CentreY + 52);
 			
 			draw_text(CentreX - 7 - ResultsValue[2], CentreY - 48, Char);
 			draw_text(CentreX - 8 - ResultsValue[3], CentreY - 28, "THROUGH");
@@ -699,12 +718,12 @@
 							Stage.TimeEnabled         = true;
 							Stage.UpdateObjects       = true;
 							Renderer.UpdateAnimations = true;
+							Stage.NextAct = true;
 							
 							// Reset the boundaries (in case of act transition)
 							Stage.TargetTopBoundary = 0;
 							Stage.TargetRightBoundary = room_width;
 							Stage.TargetBottomBoundary = room_height;
-							Stage.NextActFlag = false;
 						}
 				
 						// Move ribbon
@@ -723,7 +742,8 @@
 					if (++CardValue[0]) == 60
 					{
 						CardValue[0] = 0;
-						CardValue[1] = 3;	
+						CardValue[1] = 3;
+						//Stage.NextActFlag = false;
 					}
 					else
 					{

@@ -30,7 +30,7 @@
 				
 				// Launch the sign
 				YSpeed = max(-abs(Player.Xsp) / 1.5, -8);
-				
+				/*
 				// Make the goal point the checkpoint
 				global.StarPostData[0] = x;
 				global.StarPostData[1] = y + sprite_get_height(sprite_index) div 2 - Player.DefaultRadiusY - 1;
@@ -38,6 +38,7 @@
 				global.StarPostData[3] = room_height;
 				global.StarPostData[4] = id;
 				global.Score		   = Player.Score;
+				*/
 				
 				// Increment state
 				State++;
@@ -110,7 +111,8 @@
 			{
 				// Increment stage state
 				Stage.IsFinished  = 2;
-					
+				Player.InvincibleBonus = 0;
+				Player.HighspeedBonus = 0;	
 				audio_bgm_play(AudioPrimary, ActClear);
 				State = 4;
 			}	
@@ -123,7 +125,7 @@
 	}
 	
 	// Update stage boundaries
-	if State <= 3 and Camera.ViewX > x - global.Width - 16
+	if State <= 3 and Camera.ViewX > x - global.Width - 16 and Camera.ViewX < x + global.Width/2 - 64
 	{
 		/*if State
 		{

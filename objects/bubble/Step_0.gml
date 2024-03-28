@@ -76,7 +76,7 @@
 				{
 					if Player.InvincibleBonus
 					{
-						audio_bgm_play(AudioPrimary, Invincibility);
+						audio_bgm_play(AudioPrimary, Invincibility2);
 					}
 					else if Player.HighspeedBonus
 					{

@@ -14,11 +14,17 @@ function DiscordSetup()
 		case Stage_TestGap:
 			TopString = "Test Gap Stage";
 		break;
+		case Stage_Tutorial:
+			TopString = "Tutorial";
+		break;
 		case Stage_StarStation:
 			TopString = "Star Station 1";
 		break;
 		case Stage_StarStation2:
 			TopString = "Star Station 2";
+		break;
+		case Stage_TechTree1:
+			TopString = "Tech Tree 1";
 		break;
 		case SpStage_Test:
 		case Screen_SStage:
@@ -28,6 +34,10 @@ function DiscordSetup()
 		case SpStage_SS_4:
 		case SpStage_SS_5:
 		case SpStage_TT_1:
+		case SpStage_TT_2:
+		case SpStage_TT_3:
+		case SpStage_TT_4:
+		case SpStage_TT_5:
 			TopString = "Special Stage";
 		break;
 		case BStage_Template:
@@ -55,6 +65,9 @@ function DiscordSetup()
 			break;
 			case CharRay:
 				var Char = "Ray";
+			break;
+			case CharAmy:
+				var Char = "Amy";
 			break;
 			default:		  
 				var Char = "";

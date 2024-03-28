@@ -58,6 +58,10 @@
 				}
 				PosY += FindFloor;
 			}
+			
+			if place_meeting(x + 1 * image_xscale, y, BadnikWall) {
+				State += 1;
+			}
 		}
 		break;
 		case 2:

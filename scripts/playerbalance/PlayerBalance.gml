@@ -116,7 +116,14 @@ function PlayerBalance()
 		object to object (2 to 4). We'll use a range of 2 pixels */
 		var Tolerance = 2;
 		
+		// When the object underneath the player is destroyed/disappears
+		if !instance_exists(OnObject) {
+			OnObject = false;
+			return;
+		}
+		
 		// Ignore specific objects
+		// This check crashes if the onobject gets destroyed, fix above
 		if OnObject.object_index == Bridge
 		{
 			return;

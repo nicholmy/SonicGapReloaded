@@ -10,5 +10,7 @@ function gap_trigger_start(isLoud = true){
 		CurrentTriggerID = other.triggerId
 		CurrentGapType = other.gapType;
 		CurrentGapState = 0;
+		// 5 secs to clear the gap, triggers can refresh the timer as needed
+		CurrentGapTimer = 300;
 	}
 }

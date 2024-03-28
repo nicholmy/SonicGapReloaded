@@ -3,13 +3,26 @@
 	
 	#region Update
 	{
-		if keyboard_check(vk_anykey)
+		var gp_num = gamepad_get_device_count();
+		/*
+		var gamestr = "";
+		for (var i = 0; i < gp_num; i++;)
 		{
-			Type = "Keyboard";
+			if gamepad_is_connected(i) {
+				gamestr += "1"
+			} else gamestr += "0"
 		}
-		else if gamepad_is_connected(0) or gamepad_is_connected(4)
+		*/
+		//show_debug_message("Gamepad slots: " + string(gamestr))
+		//show_debug_message(string(gamepad_is_supported()))
+		if gamepad_is_connected(0) or gamepad_is_connected(4)
 		{
 			Type = "Gamepad";
+			
+		} 
+		else if keyboard_check(vk_anykey)
+		{
+			Type = "Keyboard";
 		}
 	}
 	#endregion
@@ -32,12 +45,12 @@
 	
 			APress     = gamepad_button_check_pressed(PadID, gp_face1);
 			BPress     = gamepad_button_check_pressed(PadID, gp_face2);
-			CPress     = gamepad_button_check_pressed(PadID, gp_face4);
+			CPress     = gamepad_button_check_pressed(PadID, gp_face3);
 			ModePress  = gamepad_button_check_pressed(PadID, gp_select);
 			StartPress = gamepad_button_check_pressed(PadID, gp_start);
 	
 			ABCPress   = APress or BPress or CPress;
-	
+			
 			// Key Down
 			Up	  = LVAxisValue < 0 or gamepad_button_check(PadID, gp_padu);
 			Down  = LVAxisValue > 0 or gamepad_button_check(PadID, gp_padd);
@@ -46,7 +59,7 @@
 	
 			A     = gamepad_button_check(PadID, gp_face1);
 			B     = gamepad_button_check(PadID, gp_face2);
-			C	  = gamepad_button_check(PadID, gp_face4);
+			C	  = gamepad_button_check(PadID, gp_face3);
 			Mode  = gamepad_button_check(PadID, gp_select);
 			Start = gamepad_button_check(PadID, gp_start);
 	

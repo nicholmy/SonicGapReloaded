@@ -68,9 +68,13 @@ function StageSetup()
 			"HELLO WORLD RAMP", 
 			"HELLO WORLD TRANSFER",
 			"HELLO WORLD SLINGSHOT",
-			"HELLO WORLD HOP"]
+			"HELLO WORLD HOP",
+			"HELLO WORLD NO JUMP",
+			"HELLO WORLD NO TURN"]
 			
 			GapScoreList = [
+			200,
+			200,
 			200,
 			200,
 			200,
@@ -86,11 +90,11 @@ function StageSetup()
 			GapLevel		 = false;
 			WaterLevel       = 1440;
 			WaterEnabled     = false;
-			StageMusic       = SkyStation_Menu;
-			StageMusic2      = SkyStation2;
+			StageMusic       = Tutorial1;
+			StageMusic2      = Tutorial2;
 			AnimatedGraphics = [tex_tsz_anitile, 6];
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
-			BottomBoundary   = 1040;
+			BottomBoundary   = room_height;
 			
 			NextStage	 = Screen_DevMenu;
 			SaveProgress = false;
@@ -164,6 +168,63 @@ function StageSetup()
 			]
 		}
 		break;
+		case Stage_TechTree1:
+		{
+			ZoneName         = "TECHNOLOGY____TREE";
+			ActID            = 0;
+			GapLevel		 = true;
+			WaterLevel       = 0;
+			WaterEnabled     = false;
+			StageMusic       = TechTree2;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			ScoreTarget		 = 5000;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;
+			
+			GapNameList = [
+			"NO JUMPING 1", 
+			"NO JUMPING 2",
+			"PEAK TRANSFER",
+			"A SHOCKING JUMP",
+			"UP AND DOWN AND ALL AROUND",
+			"THROUGH THE RAMP",
+			"LEAP TO THE MIDDLE",
+			"NO JUMPING 3"]
+			
+			GapScoreList = [
+			200,
+			200,
+			200,
+			200,
+			500,
+			500,
+			1000
+			]
+		}
+		break;
+		// Amy's Tutorial Level
+		case Stage_TechTreeAmy:
+		{
+			ZoneName         = "TECHNOLOGY____TREE";
+			ActID            = 0;
+			GapLevel		 = false;
+			WaterLevel       = 1440;
+			WaterEnabled     = false;
+			StageMusic       = TechTree2;
+			StageMusic2      = TechTree3;
+			AnimatedGraphics = [tex_tsz_anitile, 6];
+			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			BottomBoundary   = room_height;
+			
+			NextStage	 = Screen_TechTree;
+			SaveProgress = false;
+			IsFinalStage = false;	
+		}
+		break;
 		case Stage_TechTreeBoss:
 		{
 			ZoneName         = "TECHNOLOGY____TREE";
@@ -177,7 +238,7 @@ function StageSetup()
 			BottomBoundary   = room_height;
 			ScoreTarget		 = 5000;
 			
-			NextStage	 = Screen_DevMenu;
+			NextStage	 = Screen_TechTree;
 			SaveProgress = false;
 			IsFinalStage = false;
 			

@@ -19,7 +19,7 @@ if (object_check_player(ColTrigger)) {
 }
 
 // Do this whether the player is in a trigger or not
-if (!onlyEnd and Stage.CurrentTriggerID == triggerId and Stage.CurrentGapState = 0 and !Player.Grounded and Player.Ysp < -3) {
+if (!onlyEnd and Stage.CurrentGapID == gapId and Stage.CurrentTriggerID == triggerId and Stage.CurrentGapState = 0 and !Player.Grounded and Player.Ysp < -3) {
 	with Stage
 	{
 		CurrentGapState = 1;
@@ -28,7 +28,7 @@ if (!onlyEnd and Stage.CurrentTriggerID == triggerId and Stage.CurrentGapState =
 }
 
 // Only the ending triggers can determine pass/fail
-if (!onlyStart and Stage.CurrentTriggerID != triggerId and Stage.CurrentGapState = 1 and Player.Grounded) {
+if (!onlyStart and Stage.CurrentGapID == gapId and  Stage.CurrentTriggerID != triggerId and Stage.CurrentGapState = 1 and Player.Grounded) {
 	if (object_check_player(ColTrigger)) {
 		// Success!
 		gap_trigger_success();

@@ -1,7 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function PlayerGapComboCheck(){
-	if (Stage.GapLevel and !GapComboInvincible and Grounded and !Spinning and !Player.InvincibleBonus) {
+	if (Stage.GapLevel and !GapComboInvincible and Grounded and !Spinning and Animation != AnimHammerRush and !Player.InvincibleBonus) {
 		if Stage.CurrentSONICID != -1 {
 			audio_sfx_play(sfxHurtSpike, false);
 			with COMBO_Letter {

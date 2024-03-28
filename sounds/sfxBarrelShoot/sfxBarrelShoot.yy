@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sfxBarrelShoot",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.09966,
+  "name":"sfxBarrelShoot",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/Audio/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfxBarrelShoot.wav",
+  "type":1,
+  "volume":1.0,
+}
