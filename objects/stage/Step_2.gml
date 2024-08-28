@@ -11,6 +11,8 @@
 				player_damage(false, false, true);
 			}	
 		}
+		
+		AngleTimer = (AngleTimer + 1) mod 360;
 	
 		// Process animated graphics
 		if AnimatedGraphics != noone
@@ -38,6 +40,11 @@
 			Camera.Enabled = false;
 			UpdateObjects  = false;
 			TimeEnabled    = false;
+			
+			// If Eggman is anywhere on screen he will be happy :)
+			with Eggmobile_Face {
+				animation_set(spr_eggmobile_face_happy, 0);
+			}
 		
 			if !global.S3DeathRestart and floor(Player.PosY) >= Stage.BottomBoundary + 32
 			or  global.S3DeathRestart and floor(Player.PosY) >= Camera.ViewY + global.Height + 32
@@ -45,7 +52,7 @@
 				if !RestartTimer
 				{
 					// If ran out of lives or time, start event
-					if !(--Player.Lives) or Time == 36000
+					if !(Player.Lives)
 					{
 						RestartEvent = true;
 					
@@ -101,7 +108,11 @@
 							
 								savedata_save_ini(global.ActiveSave);
 							}
-							room_goto(Screen_DevMenu);
+							if (global.ReturnRoom) {
+								room_goto(global.ReturnRoom);
+							} else {
+								room_goto(Screen_DevMenu);
+							}
 						}
 					}
 				}
@@ -138,14 +149,14 @@
 			// Update right boundary
 			if RightBoundary < TargetRightBoundary
 			{
-				RightBoundary = min(RightBoundary + 4, TargetRightBoundary)
+				RightBoundary = min(RightBoundary + 12, TargetRightBoundary)
 			}
 			else if RightBoundary > TargetRightBoundary
 			{
 				if Camera.ViewX + global.Width >= TargetRightBoundary
 				{
 					RightBoundary = Camera.ViewX + global.Width;
-					RightBoundary = max(TargetRightBoundary, RightBoundary - 4);
+					RightBoundary = max(TargetRightBoundary, RightBoundary - 12);
 				}
 				else if Camera.ViewX + global.Width <= TargetRightBoundary
 				{
@@ -166,18 +177,18 @@
 					{
 						TopBoundary = Camera.ViewY;
 					}
-					TopBoundary = min(TopBoundary + 2, TargetTopBoundary);
+					TopBoundary = min(TopBoundary + 6, TargetTopBoundary);
 				}
 			}
 			else if TopBoundary > TargetTopBoundary
 			{
-				TopBoundary = max(TargetTopBoundary, TargetTopBoundary - 2);
+				TopBoundary = max(TargetTopBoundary, TargetTopBoundary - 6);
 			}
 	
 			// Update bottom boundary
 			if BottomBoundary < TargetBottomBoundary
 			{
-				BottomBoundary = min(BottomBoundary + 2, TargetBottomBoundary);
+				BottomBoundary = min(BottomBoundary + 6, TargetBottomBoundary);
 				DeathBoundary  = TargetBottomBoundary;
 			}
 			else if BottomBoundary > TargetBottomBoundary
@@ -185,7 +196,7 @@
 				if Camera.ViewY + global.Height >= TargetBottomBoundary
 				{
 					BottomBoundary = Camera.ViewY + global.Height
-					BottomBoundary = max(TargetBottomBoundary, BottomBoundary - 2);
+					BottomBoundary = max(TargetBottomBoundary, BottomBoundary - 6);
 				}
 				else if Camera.ViewY + global.Height <= TargetBottomBoundary
 				{
@@ -287,7 +298,6 @@
 	
 	#region Process Stage End
 	{
-		
 		if !GapLevel and IsFinished and fade_check(StateMax)
 		{
 			global.Score		   = Player.Score;
@@ -326,10 +336,10 @@
 			for (var i = 0; i < array_length(GapStaleList);i++) {
 				bonusGet = bonusGet and (GapStaleList[i] > 0);
 			}
-			global.Score			= Player.Score;
-			global.RingBonus		= Player.Rings * 10;
+			//global.Score			= Player.Score;
+			//global.RingBonus		= Player.Rings * 10;
 			global.ChainBonus		= min(20 * HighestChain, 1000);
-			global.CoolBonus		= bonusGet ? 1000 : 0;
+			global.CoolBonus		= bonusGet;
 			
 			// Take control away from the player
 			if !Player.DebugMode
@@ -346,7 +356,7 @@
 			// Return back to SS Screen to display results
 			if fade_check(StateMax)
 			{
-				room_goto(Screen_GapStage);
+				room_goto(Screen_GapResults);
 			}
 		}
 	}
@@ -373,13 +383,14 @@
 				ComboTimeLeft = MaxComboTime;
 				
 				CurrentSONICID = -1;
+				global.SONICBonus = true;
 				/*for (var i = 0; i < 5 and success; i++) {
 					SONICComboList[i] = false; 
 				}*/
 			}
 		}
 		
-		if (Stage.HighSpeedBonusStart) {
+		if (Stage.HighSpeedBonusStart and Stage.GapLevel) {
 			if (Stage.HighSpeedTimer > 0) Stage.HighSpeedTimer--
 		
 			if (Stage.HighSpeedTimer == 0 and Player.HighspeedBonus > 0 and (abs(Player.Xsp) > 9 or abs(Player.Ysp) > 9)) {
@@ -404,6 +415,8 @@
 		}
 		
 		if (EventTimer > 0) EventTimer--
+		if (CurrentGapTimer > 0) CurrentGapTimer--
 		
+		if (CurrentGapTimer == 0) gap_trigger_fail(false);
 	}
 	#endregion

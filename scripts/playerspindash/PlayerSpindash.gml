@@ -5,6 +5,13 @@ function PlayerSpindash()
 		return;
 	}
 	
+	if Input.CPress {
+		Spinning  = false;
+		SpindashRev = -1;
+		Animation = AnimIdle;
+		return;
+	}
+	
 	// Start spindash
 	if SpindashRev == -1
 	{
@@ -21,7 +28,7 @@ function PlayerSpindash()
 	// Charge spindash
 	else if Input.Down
 	{
-		if Input.ABCPress
+		if Input.APress or Input.BPress
 		{
 			SpindashRev = min(SpindashRev + 2, 8);
 			

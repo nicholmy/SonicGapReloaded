@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"SkyStation_Special3",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":185.28653,
+  "name":"SkyStation_Special3",
+  "parent":{
+    "name":"BGM",
+    "path":"folders/Audio/BGM.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"SkyStation_Special3.mp3",
+  "type":1,
+  "volume":1.0,
+}

@@ -40,6 +40,7 @@ function PlayerDebugMode()
 			DoubleSpinAttack = SpinRecharge;
 			DropdashFlag	 = DashLocked;
 			Camera.Enabled   = true;
+			MoveState      = StateCommon;
 			
 			audio_sfx_stop(sfxFlying);
 			audio_sfx_stop(sfxTired);
@@ -61,7 +62,7 @@ function PlayerDebugMode()
 			AllowCollision = true;
 			DebugMode	   = false;
 			image_alpha    = 1;
-			
+			MoveState      = StateCommon;
 			Stage.UpdateObjects = true;
 			Stage.TimeEnabled   = true;
 			

@@ -23,3 +23,9 @@
 	
 	// Update application and camera size to game resolution	
 	application_set_size(global.Width, global.Height);
+	
+	if (Enabled and distance_to_object(CameraTarget_Focus) < 256)
+	{
+		PosX = CameraTarget_Focus.x;
+		PosY = CameraTarget_Focus.y;
+	}

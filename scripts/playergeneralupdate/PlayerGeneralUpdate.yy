@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "PlayerGeneralUpdate",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"v1",
+  "%Name":"PlayerGeneralUpdate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerGeneralUpdate",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

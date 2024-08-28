@@ -1,0 +1,43 @@
+{
+  "$GMObject":"",
+  "%Name":"Interface_Map",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":74,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"Interface_Map",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Game Logic",
+    "path":"folders/Game Logic.yy",
+  },
+  "parentObjectId":{
+    "name":"Interface",
+    "path":"objects/Interface/Interface.yy",
+  },
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"ZoneID","filters":[],"listItems":[],"multiselect":false,"name":"ZoneID","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+  ],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_controller_main",
+    "path":"sprites/spr_controller_main/spr_controller_main.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}

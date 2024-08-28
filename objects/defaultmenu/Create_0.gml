@@ -203,6 +203,9 @@
 					case 4:
 						var DataCharacter = "R";
 					break;
+					case 5:
+						var DataCharacter = "A";
+					break;
 					default:
 						var DataCharacter = "UNK";
 				}

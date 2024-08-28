@@ -6,7 +6,7 @@
 	{
 		case AnimIdle:
 		case AnimLookup:
-		case AnimCrouch:	
+		case AnimCrouch:
 			animation_play(spr_tails_tail_idle, 8, 0);
 		break;
 		case AnimSpin:
@@ -19,12 +19,15 @@
 		case AnimSkid:
 			animation_play(spr_tails_tail_type3, 4, 0);
 		break;
-		case AnimFly:
+		case AnimHang:
+			animation_play(spr_tails_tail_type4, 8, 0);
+		break;
+		/*case AnimFly:
 			animation_play(spr_tails_tail_fly, Player.Ysp ? 2 : 1, 0);		
 		break;
 		case AnimFlyTired:
 			animation_play(spr_tails_tail_fly, 2, 0);
-		break;
+		break;*/
 		default:
 			animation_play(spr_tails_tail_hidden, 0, 0);
 	}

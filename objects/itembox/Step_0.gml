@@ -29,7 +29,7 @@
 			}
 			
 			// If so, destroy
-			if (Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id) or object_check_object(HammerDrop_Hitbox)
+			if (Check and (Player.Spinning or Player.GlideState > GlideFall or Player.Animation == AnimHammerRush) and Player.OnObject != id) or object_check_object(HammerDrop_Hitbox)
 			{
 				if object_check_player(ColHitbox2) or object_check_object(HammerDrop_Hitbox)
 				{
@@ -123,10 +123,10 @@
 				break;
 				case "High Speed":
 				{
-					if !Player.SuperState and !Player.HighspeedBonus
+					/*if !Player.SuperState and !Player.HighspeedBonus
 					{
 						audio_bgm_play(AudioPrimary, HighSpeed);
-					}
+					}*/
 					Player.HighspeedBonus = 1200;
 					Stage.HighSpeedBonusStart = true;
 				}
@@ -145,9 +145,9 @@
 							var Object	  = instance_create(Player.PosX, Player.PosY, InvincibilityStar);
 								Object.ID = i;
 						}
-						audio_bgm_play(AudioPrimary, Invincibility);
+						audio_bgm_play(AudioPrimary, Invincibility2);
 					}
-					Player.InvincibleBonus = 1200;
+					Player.InvincibleBonus = 1600;
 				}
 				break;
 				case "Barrier":
@@ -220,7 +220,7 @@
 						{
 							if Player.InvincibleBonus
 							{
-								audio_bgm_play(AudioPrimary, Invincibility);
+								audio_bgm_play(AudioPrimary, Invincibility2);
 							}
 							else if Player.HighspeedBonus
 							{

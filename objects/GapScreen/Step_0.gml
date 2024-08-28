@@ -27,6 +27,9 @@
 				// Shift counters
 				if Offset[4]
 				{
+					with HUD_SpecialRingProgress {
+						visible = true;
+					}
 					Offset[4] -= 15;
 				}
 				if Offset[5]
@@ -45,7 +48,7 @@
 				}
 				
 				if !audio_bgm_is_playing(AudioPrimary)
-				{		
+				{
 					if (global.RingBonus or global.CoolBonus or global.ChainBonus) 
 					{
 						if global.RingBonus
@@ -158,6 +161,7 @@
 			{
 				global.LastZoneCleared = 0;
 				global.LastRingCleared = 0;
+				global.LastTimeCleared = 0;
 				
 				// Save our progress
 				if global.ActiveSave != -1

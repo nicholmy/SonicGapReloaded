@@ -4,15 +4,16 @@ function PlayerAnimate()
 	static AnimBreatheTime = 0;
 	static AnimStandTime   = 0;
 	static AnimSkidTime    = 0;
+	static AnimHammerTime  = 0;
 	
 	// Update statics
 	if Animation != AnimBreathe
 	{
 		AnimBreatheTime = 24;
 	}
-	if Animation != AnimSpring
+	if Animation != AnimSpring and Animation != AnimHammerSpring
 	{
-		AnimSpringTime = 48;
+		AnimSpringTime = 60;
 	}
 	if Animation != AnimDropStand and Animation != AnimGlideStand
 	{
@@ -21,6 +22,9 @@ function PlayerAnimate()
 	if Grounded and Gsp > 0 and Input.Left or Gsp < 0 and Input.Right
 	{
 		AnimSkidTime = global.Character == CharSonic ? 24 : 16;
+	}
+	if (Animation != AnimHammerRush) {
+		AnimHammerTime = 48;
 	}
 	
 	// Animate character
@@ -161,6 +165,13 @@ function PlayerAnimate()
 			break;
 			case AnimDropdash:
 				animation_play(spr_sonic_dropdash, 1, 0);
+			break;
+			case AnimHang:
+				animation_play(spr_sonic_hang, 32, 0);
+			break;
+			case AnimSwing:
+				// Manually set the image_index with the object
+				sprite_index = spr_sonic_swing;
 			break;
 		}
 		#endregion
@@ -340,10 +351,10 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimFly:
-					animation_set(spr_tails_fly, 0);
+					animation_play(spr_tails_fly, 2, 0);
 				break;
 				case AnimFlyTired:
-					animation_play(spr_tails_fly_tired, 8, 0);
+					animation_play(spr_tails_fly_tired, 4, 0);
 				break;
 				case AnimSwim:
 					animation_play(spr_tails_swim, Ysp < 0 ? 4 : 8, 0);
@@ -393,6 +404,13 @@ function PlayerAnimate()
 						animation_set(spr_tails_breathe, 0);
 					}
 				}
+				break;
+				case AnimHang:
+					animation_play(spr_tails_hang, 8, 0);
+				break;
+				case AnimSwing:
+					// Manually set the image_index with the object
+					sprite_index = spr_tails_swing;
 				break;
 			}	
 		}
@@ -804,6 +822,174 @@ function PlayerAnimate()
 				{
 					animation_play(spr_ray_squirrel_glidedown, 4, 0);
 				}
+				break;
+			}
+		}
+		#endregion
+		
+		#region Amy
+		case CharAmy:
+		{	
+			switch Animation
+			{
+				case AnimIdle:
+				{
+					animation_play(spr_amy_idle, [288, 8, 8, 8, 8], 1);
+				}
+				break;
+				case AnimMove:	
+				{
+					if abs(Gsp) < 6
+					{
+						animation_play(spr_amy_walk, floor(max(1, 9 - abs(Gsp))), 0);
+					}
+					else
+					{
+						if global.PeeloutEnabled
+						{
+							var Sprite = abs(Gsp) < 10 ? spr_amy_run : spr_amy_dash;
+						}
+						else
+						{
+							var Sprite = spr_amy_run;
+						}
+						animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
+					}
+				}
+				break;
+				case AnimPeelout:
+				{
+					if abs(PeeloutRev) < 6
+					{
+						var Sprite = spr_sonic_walk;
+					}
+					else if abs(PeeloutRev) < 10
+					{
+						var Sprite = spr_sonic_run;
+					}
+					else
+					{
+						var Sprite = spr_sonic_peelout;
+					}	
+					animation_play(Sprite, floor(max(1, 8 - abs(PeeloutRev))), 0);
+				}
+				break;
+				case AnimSpin:
+				{
+					if abs(Gsp) < 6
+					{
+						var Sprite = spr_amy_spin;
+					}
+					else
+					{
+						var Sprite = spr_amy_spin;
+					}
+					animation_play(Sprite, floor(max(1, 5 - abs(Gsp))), 0);
+				}
+				break;
+				case AnimSpindash:
+					animation_play(spr_amy_spindash, 1, 0);
+				break;
+				case AnimCrouch:
+					animation_play(spr_amy_crouch, 4, 1);
+				break;
+				case AnimLookup:
+					animation_play(spr_amy_lookup, 4, 1);
+				break;
+				case AnimSkid:
+				{
+					if !(--AnimSkidTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_amy_skid, 4, 3);
+					}
+				}
+				break;
+				case AnimPush:
+					animation_play(spr_amy_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
+				break;
+				case AnimHurt:
+					animation_set(spr_amy_hurt, 0);
+				break;
+				case AnimDeath:
+					animation_set(spr_amy_death, 0);
+				break;	
+				case AnimDrown:
+					animation_set(spr_amy_death, 0);
+				break;
+				case AnimBalance:
+					animation_play(spr_amy_balance, 16, 0);
+				break;
+				case AnimBalanceFlip:
+					animation_play(spr_amy_balance_flip, 16, 0);
+				break;
+				case AnimBalancePanic:
+					animation_play(spr_amy_balance, 8, 0);
+				break;
+				case AnimSpring:
+				{
+					if !(--AnimSpringTime)
+					{
+						Animation = AnimMove;
+					}
+					/*if (Ysp > 0)
+					{
+						Animation = AnimMove;
+					}*/
+					else
+					{
+						animation_set(spr_amy_spring, 0);
+					}
+				}
+				break;
+				case AnimBreathe:
+				{
+					if !(--AnimBreatheTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_set(spr_sonic_breathe, 0);
+					}
+				}
+				break;
+				case AnimDropdash:
+					animation_play(spr_amy_hammerdropdash, 2, 0);
+				break;
+				case AnimHammerJump:
+					animation_play(spr_amy_hammerjump, floor(max(1, 5 - abs(Gsp))), 0);
+				break;
+				case AnimHammerRush:
+					if !(--AnimHammerTime)
+					{
+						Animation = AnimMove;
+						AnimHammerTime = 48;
+					}
+					else
+					{
+						animation_play(spr_amy_hammerrush, 2, 0);
+					}
+				break;
+				case AnimHammerSpring:
+					if !(--AnimSpringTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_amy_hammerjump, floor(max(1, 5 - abs(8))), 0);
+					}
+				break;
+				case AnimHang:
+					animation_play(spr_amy_hang, 32, 0);
+				break;
+				case AnimSwing:
+					// Manually set the image_index with the object
+					sprite_index = spr_sonic_swing;
 				break;
 			}
 		}

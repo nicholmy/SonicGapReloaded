@@ -26,7 +26,8 @@
 	}
 	
 	// Destroy if above the water level or collected
-	if y < Stage.WaterLevel or Collected
+	//if (Stage.WaterEnabled and y < Stage.WaterLevel) or object_check_object(WaterSurface) or Collected
+	if (Stage.WaterEnabled and abs(y - Stage.WaterLevel) <= 4) or object_check_object(WaterSurface_Hitbox) or Collected
 	{
 		if sprite_index != spr_obj_bubble_disappear
 		{
@@ -76,7 +77,7 @@
 				{
 					if Player.InvincibleBonus
 					{
-						audio_bgm_play(AudioPrimary, Invincibility);
+						audio_bgm_play(AudioPrimary, Invincibility2);
 					}
 					else if Player.HighspeedBonus
 					{

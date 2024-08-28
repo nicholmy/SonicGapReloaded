@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "DiscordSetup",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Game Setup",
-    "path": "folders/Game Setup.yy",
+  "$GMScript":"v1",
+  "%Name":"DiscordSetup",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DiscordSetup",
+  "parent":{
+    "name":"Game Setup",
+    "path":"folders/Game Setup.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

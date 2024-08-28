@@ -7,12 +7,14 @@ function MenuSetup()
 	Use 'noone' to fill the blanks slots for the zones that do not exist yet */
 	ZoneOrder =
 	[
-		Screen_SkyStation,
+		Map_SkyStation,
 		Screen_TechTree,
 		noone,
 		noone
 	];
-	StartStage = Screen_SkyStation;
+	StartStage = Map_SkyStation;
+	global.CurrentAct = 0;
+	global.ReturnRoom = room;
 	
 	// Main Menu
 	menu_add_header(0,    "SONIC GAP RELOADED\n\nDEMO V1-1" + "\n\nMAIN MENU");
@@ -43,13 +45,14 @@ function MenuSetup()
 	menu_add_option(3, 2, "KNUCKLES", 2);
 	menu_add_option(3, 3, "MIGHTY", 2);
 	menu_add_option(3, 4, "RAY", 2);
+	menu_add_option(3, 5, "AMY", 2);
 		
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "TUTORIAL",  Stage_Tutorial);
-	menu_add_option(4, 1, "STAR STATION 1", Stage_StarStation);
-	menu_add_option(4, 2, "STAR STATION 2", Stage_StarStation2);
-	menu_add_option(4, 3, "GAP STAGE", Stage_TestGap);
+	menu_add_option(4, 0, "TECH TREE AMY", Stage_TechTreeAmy);
+	menu_add_option(4, 1, "VIVID VOVAGE SPECIAL",  SpStage_VV_1);
+	menu_add_option(4, 2, "SS - SS6", SpStage_SS_6);
+	menu_add_option(4, 3, "SONIC TUTORIAL", Stage_Tutorial);
 	menu_add_option(4, 4, "- -", noone);
 	
 	// Screen select
@@ -66,6 +69,7 @@ function MenuSetup()
 	menu_add_option(6, 1, "WINDOW SIZE: ",  noone);
 	menu_add_option(6, 2, "SOUND VOLUME: ", noone);
 	menu_add_option(6, 3, "MUSIC VOLUME: ", noone);
+	menu_add_option(6, 4, "SET CONTROLS", noone);
 	
 	// Game Start (delete data)
 	menu_add_header(7,    "SELECT A SAVE FILE TO DELETE");
@@ -75,9 +79,9 @@ function MenuSetup()
 	menu_add_option(7, 3, "SLOT 4", noone);
 	
 	menu_add_header(8,    "SELECT A SPECIAL STAGE");
-	menu_add_option(8, 0, "STAR STATION 1", SpStage_SS_1);
-	menu_add_option(8, 1, "STAR STATION 2", SpStage_SS_2);
-	menu_add_option(8, 2, "STAR STATION 3", SpStage_SS_3);
-	menu_add_option(8, 3, "STAR STATION 4", SpStage_SS_4);
-	menu_add_option(8, 4, "STAR STATION 5", SpStage_SS_5);
+	menu_add_option(8, 0, "TT - TT4", SpStage_TT_4);
+	menu_add_option(8, 1, "TT - TT7", SpStage_TT_7);
+	menu_add_option(8, 2, "TT - TT8", SpStage_TT_8);
+	menu_add_option(8, 3, "TT - TT9", SpStage_TT_9);
+	menu_add_option(8, 4, "TT - TT10", SpStage_TT_10);
 }

@@ -2,10 +2,28 @@
 function SSMenuSetup()
 {
 	ZoneID = 0;
-	audio_bgm_play(AudioPrimary, SkyStation_Menu)
+	global.CurrentAct = 0;
+	var count = 0;
+	var flagList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+	for (var i = 0; i < array_length(flagList); i++) {
+		if (global.RedRingList2[i]) {
+			count += 1;
+		} 
+	}
+	
+	if count >= 10 {
+		audio_bgm_play(AudioPrimary, SkyStation_Menu3);
+	}
+	else if count >= 3 {
+		audio_bgm_play(AudioPrimary, SkyStation_Menu2);
+	}
+	else {
+		audio_bgm_play(AudioPrimary, SkyStation_Menu1);
+	}
+		
 	
 	menu_add_header(0,    "SONIC GAP RELOADED" + "\n\nSKY STATION");
-	menu_add_option(0, 0, "GAP LEVELS",   2);
+	menu_add_option(0, 0, "MAIN LEVELS",   2);
 	menu_add_option(0, 1, "SPECIAL STAGES", 3);
 	menu_add_option(0, 2, "CHARACTER SELECT", 1);
 	menu_add_option(0, 3, "ZONE SELECT", 4);	
@@ -18,11 +36,13 @@ function SSMenuSetup()
 	menu_add_option(1, 2, "KNUCKLES", 0);
 	menu_add_option(1, 3, "MIGHTY", 0);
 	menu_add_option(1, 4, "RAY", 0);
+	menu_add_option(1, 5, "AMY", 0);
 	
 	// Stage Select
 	menu_add_header(2,    "SELECT A STAGE");
-	menu_add_option(2, 0, "SKY STATION 1",  Stage_StarStation);
-	menu_add_option(2, 1, "SKY STATION 2", Stage_StarStation2);
+	menu_add_option(2, 0, "TUTORIAL",  Stage_Tutorial);
+	menu_add_option(2, 1, "1-1",  Stage_StarStation);
+	menu_add_option(2, 2, "1-2", Stage_StarStation2);
 
 	// Special Stage Select
 	menu_add_header(3,    "SELECT A SPECIAL STAGE");

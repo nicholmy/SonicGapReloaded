@@ -102,6 +102,7 @@
 				+ "\n   JUMPING: "			 + string(Player.Jumping)
 				+ "\n   ROLLING: "			 + string(Player.Grounded and Player.Spinning)
 				+ "\n   PUSHING: "			 + string(Player.Pushing)
+				+ "\n   MOVE STATE: "        + string(Player.MoveState)
 				+ "\n   GLIDE STATE: "		 + string(Player.GlideState)
 				+ "\n   GLIDE VALUE: "		 + string(Player.GlideValue)
 				+ "\n   CLIMB STATE: "       + string(Player.ClimbState)

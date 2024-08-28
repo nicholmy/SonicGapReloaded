@@ -4,6 +4,7 @@
 	
 	// Setup Script
 	StageSetup();
+	MapSetup();
 	
 	#region Startup
 	{
@@ -19,16 +20,22 @@
 		TimeEnabled	   =  0;
 		IsBossfight    = -1;
 		OscillateAngle = -2.8125;
+		AngleTimer     =  0;
 		UpdateObjects  =  false;
 		EventMessage = "HEAD TO THE EXIT!";
 		EventTimer = 0;
 		NextActFlag = false;
+		NextAct = false;
+		ActID = global.CurrentAct;
+		BossHealth = 0;
+		StageType = 0; // 0 - Map Stage, 1 - Normal Level, 2 - Gap Level, 3 - Special Stage
 		
 		CurrentGapID   = -1;
 		CurrentGapName = "";
 		CurrentGapType = -1; // 0 - Ramp, 1 - Transfer
 		CurrentGapState = -1;
 		CurrentTriggerID = -1;
+		CurrentGapTimer = 0;
 		HighestChain = 0;
 		GapChainCount = 0;
 		GapComboTotal = 0;
@@ -59,17 +66,31 @@
 			]
 		}
 	
+		WobbleData =
+		[ 
+			0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2,
+			2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+			3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2,
+			2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+			0,-1,-1,-1,-1,-1,-2,-2,-2,-2,-2,-3,-3,-3,-3,-3,
+			-3,-3,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,
+			-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-3,
+			-3,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1
+		]
+	
 		// Load saved data if loading into the stage from Bonus or Special Stage
 		if array_length(global.StarPostData)
 		{
 			Time		   = global.StarPostData[2];
 			BottomBoundary = global.StarPostData[3];
 		}
+		/*
 		if array_length(global.SpecialRingData)
 		{
 			Time		   = global.SpecialRingData[4];
 			BottomBoundary = global.SpecialRingData[5];		
 		}
+		*/
 	
 		// Set stage boundaries
 		TargetLeftBoundary   = LeftBoundary;
@@ -79,6 +100,10 @@
 		DeathBoundary        = BottomBoundary;
 	
 		// Play stage music
-		audio_bgm_play(AudioPrimary, StageMusic);
+		if (global.CurrentAct == 1 and StageMusic2) {
+			audio_bgm_play(AudioPrimary, StageMusic2);
+		} else {
+			audio_bgm_play(AudioPrimary, StageMusic);
+		}
 	}
 	#endregion

@@ -62,7 +62,7 @@
 				// Draw player's hitbox
 				if object_index == Player and !DebugMode
 				{
-					if DoubleSpinAttack
+					if DoubleSpinAttack or Animation == AnimHammerRush or IsAmyHammerJumping or Animation == AnimHammerSpring
 					{
 						draw_rectangle_colour(HitboxData[1][0], HitboxData[1][1], HitboxData[1][2], HitboxData[1][3], $00ff00, $00ff00, $00ff00, $00ff00, false);
 					}

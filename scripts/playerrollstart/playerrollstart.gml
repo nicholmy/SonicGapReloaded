@@ -1,6 +1,6 @@
 function PlayerRollStart()
 {
-	if !ForcedRoll and (Input.Left or Input.Right) or SpindashRev != -1
+	if !ForcedRoll and (Input.Left or Input.Right) or SpindashRev != -1 or MoveState != StateCommon
 	{
 		return;
 	}

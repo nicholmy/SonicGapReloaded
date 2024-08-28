@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "PlayerPhysicsHandle",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"v1",
+  "%Name":"PlayerPhysicsHandle",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerPhysicsHandle",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

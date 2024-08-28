@@ -13,6 +13,7 @@
 	object_set_unload(FlagPause);
 	object_set_depth(Player, 0);
 	object_set_solidbox(16, 16, Heightmap);	
+	object_set_hitbox(16, 16);
 	
 	// Set animation to its last frame so we can simply restart it
 	animation_play(sprite_index, 3, 3); image_index = 3;

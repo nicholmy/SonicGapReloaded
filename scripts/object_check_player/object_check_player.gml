@@ -31,8 +31,8 @@ function object_check_player(collisionType)
 			// Use player's normal hitbox by default
 			var HitboxData = Player.HitboxData[0];
 			
-			// If called ColHitbox2 and Double Spin Attack is active, use its hitbox instead
-			if collisionType == ColHitbox2 and Player.DoubleSpinAttack
+			// If called ColHitbox2 and Double Spin Attack or Hammer Rush is active, use its hitbox instead
+			if collisionType == ColHitbox2 and (Player.DoubleSpinAttack or Player.IsAmyHammerJumping or Player.Animation == AnimHammerRush or Player.Animation == AnimHammerSpring)
 			{
 				var HitboxData = Player.HitboxData[1];
 			}

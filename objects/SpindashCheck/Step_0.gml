@@ -8,10 +8,10 @@ if (object_check_player(ColTrigger)) {
 	var spindashing = Player.Animation == AnimSpindash;
 	if (state == 0) {
 		Stage.EventMessage = "DO A SPINDASH!"
-		Stage.EventTimer = 5;
+		Stage.EventTimer = 60;
 	} else if (state == 1) {
 		Stage.EventMessage = "ALMOST THERE..."
-		Stage.EventTimer = 5;
+		Stage.EventTimer = 60;
 	}
 	if (state == 0 and crouching) {
 		state = 1;

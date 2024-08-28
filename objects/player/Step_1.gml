@@ -9,64 +9,79 @@
 	}
 	else if PlayerProcess()
 	{
-		// Airborne
-		if !Grounded
-		{
-			if !GlideState and !ClimbState
+		PlayerMovementState();
+		//if (MoveState == StateCommon) {
+			// Airborne
+			if !Grounded
 			{
-				// Not gliding or climbing
-				PlayerJump();
-				PlayerMovementAir();
-				PlayerLevelBound();
-				PlayerPosition();
-				PlayerSonicDropdash();
-				PlayerTailsFlight();
-				PlayerRayFlight();
-				PlayerMightyHammerDrop();
-				PlayerAirLevelCollision();
+				if !GlideState and !ClimbState
+				{
+					// Not gliding or climbing
+				
+					PlayerJump();
+					PlayerMovementAir();
+					PlayerLevelBound();
+					PlayerPosition();
+					PlayerSonicDropdash();
+					PlayerTailsFlight();
+					PlayerRayFlight();
+					PlayerMightyHammerDrop();
+					PlayerAirLevelCollision();
+				}
+				else
+				{
+					// Gliding or climbing
+					PlayerMovementAir();
+					PlayerKnuxGlideControl();
+					PlayerLevelBound();
+					PlayerPosition();
+					PlayerKnuxGlide();
+					PlayerKnuxClimb();
+				}
+				PlayerAmyHammerState();
+				PlayerResetOnFloor();
+				PlayerHitboxUpdate();
 			}
-			else
-			{
-				// Gliding or climbing
-				PlayerMovementAir();
-				PlayerKnuxGlideControl();
-				PlayerLevelBound();
-				PlayerPosition();
-				PlayerKnuxGlide();
-				PlayerKnuxClimb();
-			}
-			PlayerResetOnFloor();
-			PlayerHitboxUpdate();
-		}
 		
-		// Grounded
-		else
-		{
-			if !Spinning
-			{
-				// Not rolling
-				if PlayerSpindash()  return;
-				if PlayerPeelout()   return;
-				if PlayerJumpStart() return;
-				PlayerSlopeResist();
-				PlayerMovementGround();
-				PlayerBalance();
-				PlayerGroundWallCollision();	
-				PlayerRollStart();	
-			}
+			// Grounded
 			else
 			{
-				// Rolling
-				if PlayerJumpStart() return;
-				PlayerSlopeResistRoll();	
-				PlayerMovementRoll();
-				PlayerGroundWallCollision();
+				if !Spinning
+				{
+					// Not rolling
+					if PlayerSpindash()  return;
+					if PlayerPeelout()   return;
+					if PlayerJumpStart() return;
+					PlayerSlopeResist();
+					PlayerMovementGround();
+					PlayerBalance();
+					PlayerGroundWallCollision();	
+					PlayerRollStart();	
+				}
+				else
+				{
+					// Rolling
+					if PlayerJumpStart() return;
+					PlayerSlopeResistRoll();	
+					PlayerMovementRoll();
+					PlayerGroundWallCollision();
+				}
+				
+				PlayerAmyHammerState();
+				PlayerGapComboCheck();
+				PlayerLevelBound();
+				PlayerPosition();
+				PlayerGroundFloorCollision();
+				PlayerSlopeRepel();
+				PlayerHitboxUpdate();
 			}
+		/*} else {
+			PlayerGroundWallCollision();
 			PlayerGapComboCheck();
 			PlayerLevelBound();
 			PlayerPosition();
+			
 			PlayerGroundFloorCollision();
-			PlayerSlopeRepel();
 			PlayerHitboxUpdate();
-		}
+		}*/
 	}	

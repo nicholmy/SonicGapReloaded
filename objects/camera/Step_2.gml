@@ -54,17 +54,32 @@
 			} 
 			else 
 			{
-				if TargetY <= global.Height / 2 - 48 
-				{ 
-					ShiftY = clamp(TargetY - (global.Height / 2 - 48), -MaxShiftY, 0);  
-				} 
-				else if TargetY >= global.Height / 2 + 16 
-				{ 
-					ShiftY = clamp(TargetY - (global.Height / 2 + 16), 0, MaxShiftY);  
-				}
-				else
-				{
-					ShiftY = 0;
+				if Target == Player {
+					if TargetY <= global.Height / 2 - 48 
+					{ 
+						ShiftY = clamp(TargetY - (global.Height / 2 - 48), -MaxShiftY, 0);  
+					} 
+					else if TargetY >= global.Height / 2 + 16 
+					{ 
+						ShiftY = clamp(TargetY - (global.Height / 2 + 16), 0, MaxShiftY);  
+					}
+					else
+					{
+						ShiftY = 0;
+					}
+				} else {
+					if TargetY <= global.Height / 2 - 8 
+					{ 
+						ShiftY = clamp(TargetY - (global.Height / 2 - 8), -MaxShiftY, 0);  
+					} 
+					else if TargetY >= global.Height / 2 + 8 
+					{ 
+						ShiftY = clamp(TargetY - (global.Height / 2 + 8), 0, MaxShiftY);  
+					}
+					else
+					{
+						ShiftY = 0;
+					}
 				}
 			}
 	

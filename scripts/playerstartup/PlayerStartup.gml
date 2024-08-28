@@ -46,6 +46,7 @@ function PlayerStartup()
 	RayGlideAngleDirection = 0;
 	RayGlideAngleSpeed = 0;
 	RayGlideAngle		= 0;
+	IsAmyHammerJumping  = 0;
 	AllowMidAirActions  = 0;
 	HighspeedBonus	    = 0;
 	InvincibleBonus	    = 0;
@@ -67,10 +68,12 @@ function PlayerStartup()
 	DebugItem			= 0;
 	DebugSpeed			= 0;
 	HitboxData			= [];
+	MoveState			= 0;
 	
 	// Set defaults
 	AllowCollision   = true;
 	AllowMovement    = true;
+	AllowGravity     = true;
 	DropdashRev      = -1;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
@@ -86,6 +89,9 @@ function PlayerStartup()
 	DoubleSpinAttack = SpinReady;
 	DropdashFlag     = DashLocked;
 	DrawOrder		 = depth;
+	State			 = 0;
+	Hanging			 = false;
+	DustTimer		 = 0;
 
 	// Set default sprite and depth
 	switch global.Character
@@ -104,6 +110,9 @@ function PlayerStartup()
 		break;
 		case CharRay:
 			sprite_index = spr_ray_idle;
+		break;
+		case CharAmy:
+			sprite_index = spr_amy_idle;
 		break;
 	}
 	
@@ -141,13 +150,14 @@ function PlayerStartup()
 	{
 		PosX		= global.SpecialRingData[0];
 		PosY		= global.SpecialRingData[1];
-		Rings		= global.SpecialRingData[2];
-		BarrierType = global.SpecialRingData[3]; 
+		//Rings		= global.SpecialRingData[2];
+		//BarrierType = global.SpecialRingData[3]; 
 		instance_create(PosX, PosY, Barrier);
 		
 		// Clear data
 		global.SpecialRingData = [];
 	}
+	
 	
 	Camera.PosX = PosX - global.Width  / 2;
 	Camera.PosY = PosY - global.Height / 2 + 16;

@@ -6,6 +6,13 @@
 		return;
 	}
 	
+	if (State == 1) {
+		draw_set_font(Font.FontDefault);
+		draw_set_halign(fa_center);
+		
+		draw_text(global.Width/2, global.Height - 32, "PRESS ABC OR START TO CONTINUE");
+	}
+	
 	// Set text properties
 	draw_set_font(Font.FontCard);
 	draw_set_halign(fa_center);
@@ -39,6 +46,9 @@
 					break;
 					case CharRay:
 						var Text1 = "RAY____GOT____ALL";
+					break;
+					case CharAmy:
+						var Text1 = "AMY____GOT____ALL";
 					break;
 					default:
 						var Text1 = "CHARACTER____GOT____ALL";
@@ -101,10 +111,13 @@
 				case CharRay:
 					var Text1 = "RAY____GOT____A";
 				break;
+				case CharAmy:
+					var Text1 = "AMY____GOT____A";
+				break;
 				default:
 					var Text1 = "CHARACTER____GOT____A";
 			}
-			var Text2 = "SPECIAL____RING";
+			var Text2 = "RED____RING";
 			
 			draw_text(CentreX + Offset[0], CentreY - 44 + ShiftY, Text1);
 			draw_text(CentreX + Offset[1], CentreY - 20 + ShiftY, Text2);
@@ -127,15 +140,16 @@
 	draw_text(CentreX + 80 + Offset[4], CentreY + 33, global.Score);
 	draw_text(CentreX + 80 + Offset[5], CentreY + 49, global.SpecialScore);
 	*/
-	
+	/*
 	// Display emeralds
 	if RenderFlag
 	{
-		for (var i = 0; i < array_length(global.SpecialRingList[global.LastZoneCleared]); i++) {
-			if (global.SpecialRingList[global.LastZoneCleared][i]) {
-				draw_sprite(spr_obj_ring_special, 0, CentreX - 110 + 28 * i, CentreY);
+		for (var i = global.LastZoneCleared * 10; i < global.LastZoneCleared * 10 + 10; i++) {
+			if (global.RedRingList2[i]) {
+				draw_sprite(spr_obj_redring, 0, CentreX - 110 + 28 * i, CentreY);
 			} else {
-				draw_sprite(spr_obj_ring_special_disabled, 0, CentreX - 110 + 28 * i, CentreY);
+				draw_sprite(spr_obj_redring_disabled, 0, CentreX - 110 + 28 * i, CentreY);
 			}
 		}
 	}
+	*/

@@ -1,4 +1,5 @@
 /// @function tile_find_2v(x1,y1,x2,y2,toPositive,objectAngle,tilelayer)
+// Returns the distance and angle of the closest point between (x1, y1) and (x2, y2)
 function tile_find_2v(x1,y1,x2,y2,toPositive,objectAngle,tilelayer)
 {
 	// Get tiles at positions

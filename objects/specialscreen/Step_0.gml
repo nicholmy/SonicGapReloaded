@@ -53,7 +53,14 @@
 				{
 					RenderAlpha += 0.1;
 				}
-				
+				if (++TallyStart == 180) or (Input.ABCPress or Input.StartPress)
+				{		
+					audio_sfx_stop(sfxScoreCount);
+					audio_sfx_play(sfxScoreTally, false);
+					
+					State++;
+				}
+				/*
 				if !audio_bgm_is_playing(AudioPrimary)
 				{		
 					if global.SpecialScore
@@ -89,25 +96,7 @@
 						State--;
 					}
 				}
-			}
-		}
-		break;
-		
-		// Shift main text back to show "character can be super" message
-		case -1:
-		{
-			if Offset[0] > -360
-			{
-				Offset[0] -= 30;
-			}
-			if Offset[1] < 360
-			{
-				Offset[1] += 30;
-			}
-			else
-			{
-				// Increment state
-				State += 2;
+				*/
 			}
 		}
 		break;
@@ -126,8 +115,8 @@
 				}
 			}
 			
-			// Increment state and perform fade after 3 seconds
-			if (++RoomTimer) == 180
+			// Increment state and perform fade after aBCStart Press
+			if Input.ABCPress or Input.StartPress
 			{
 				State++
 				

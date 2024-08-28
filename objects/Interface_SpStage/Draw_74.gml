@@ -42,7 +42,7 @@
 					// Restart
 					case 1: 
 					{
-						if Player.Lives > 1
+						/*if Player.Lives > 1
 						{
 							fade_perform(ModeInto, BlendBlack, 1);
 							audio_sfx_play(sfxPauseSelect, false);
@@ -50,7 +50,9 @@
 						else
 						{
 							audio_sfx_play(sfxFail, false);
-						}
+						}*/
+						fade_perform(ModeInto, BlendBlack, 1);
+						audio_sfx_play(sfxPauseSelect, false);
 					}
 					break;
 					
@@ -176,6 +178,17 @@
 				draw_set_halign(fa_right);
 	
 				draw_text(X + 92, Y + 25, string(SpecialStage_Base.EnemiesLeft));
+			} else if (SpecialStage_Base.SpecialStageType == 4) {
+				/** BOSS **/
+				var barX = X + global.Width - 16;
+				var barY = Y + global.Height - 16;
+				var barWidth = 64;
+				var barHeight = 8;
+				//var minColor = Player.GapComboInvincible > 0 ? c_blue : c_red
+				//var maxColor = Player.GapComboInvincible > 0 ? c_blue : c_green
+				if (SpecialStage_Base.BossToggleHUD) {
+					draw_healthbar(barX - barWidth * 2, barY - barHeight * 2, barX, barY, SpecialStage_Base.BossHealth / SpecialStage_Base.BossHealthMax * 100, c_black, c_red, c_red, 0, true, true);
+				}
 			}
 			var barYTop = global.Height - 7
 			draw_set_font(Font.FontDefault);
@@ -189,6 +202,7 @@
 	
 			draw_sprite(gui_hud_lives, global.Character, X + 40, Y + global.Height - 16);
 			*/
+			
 		}
 		/*if (Stage.EventMessage != "" and Stage.EventTimer > 0)
 				draw_text(global.Width/2, barYTop - 16, SpecialStage_Base.EventMessage)*/

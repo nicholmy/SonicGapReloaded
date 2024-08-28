@@ -3,6 +3,7 @@
 	
 	#region Manual Process
 	{
+		global.ReturnRoom = room;
 		switch MenuID
 		{
 			// Main Menu
@@ -109,20 +110,8 @@
 					if MenuRedirect[MenuID][OptionID] != noone
 					{
 						global.ActiveSave = -1;
-						global.Lives	  =  3;
-						global.Continues  =  2;
-						global.Emeralds   =  0;
-						global.Score	  =  0;
-						global.ZoneID     =  0;
-						global.SaveState  =  0;
-						global.SpecialRings = 0;
-						global.RedRings = 0;
-						global.SpecialRingList = [
-							[0,0,0,0,0,0,0,0,0]
-						];
-						global.RedRingList = [
-							[0,0,0,0,0]
-						];
+						
+						savedata_reset();
 					
 						room_goto(MenuRedirect[MenuID][OptionID]);
 					}
@@ -173,9 +162,21 @@
 							global.MusicVolume = loop_value(global.MusicVolume * 10 + (Input.RightPress ? 1 : -1), 0, 10) / 10;
 						}
 						break;
+						
+						
 					}
 				}
-			
+				else if Input.APress or Input.CPress or Input.StartPress
+				{
+					switch OptionID
+					{
+						case 4:
+						{
+							room_goto(Screen_ControlsMenu);
+						}
+						break;
+					}
+				}
 				// Update config file
 				else if Input.BPress
 				{

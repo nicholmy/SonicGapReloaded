@@ -54,7 +54,7 @@
 					
 					// Remember player and stage data
 					global.SpecialRingData[0] = x;
-					global.SpecialRingData[1] = y;
+					global.SpecialRingData[1] = y + 128;
 					global.SpecialRingData[2] = Player.Rings;
 					global.SpecialRingData[3] = Player.BarrierType;
 					global.SpecialRingData[4] = Stage.Time;

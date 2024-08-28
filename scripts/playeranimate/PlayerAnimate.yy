@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "PlayerAnimate",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"v1",
+  "%Name":"PlayerAnimate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerAnimate",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

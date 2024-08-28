@@ -1,3 +1,4 @@
+
 /// @function animation_play(spriteid,duration,loopframe)
 function animation_play(spriteid,duration,loopframe)
 {

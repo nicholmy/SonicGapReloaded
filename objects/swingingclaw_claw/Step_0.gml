@@ -1,10 +1,12 @@
 /// @description Handle the free and circular swing modes
 
+// Grab the player
 if(object_check_player(ColTrigger) and !isGrabbing and lockTimer == 0 and !Player.Death and !Player.Hurt){
 	isGrabbing = true;	
 	swingMode = 0;
 	XSpeed = Player.Xsp;
 	YSpeed = Player.Ysp;
+	grabTime = 0;
 	audio_sfx_play(sfxGrab, false);
 	show_debug_message("Swing Mode: " + string(swingMode))
 	show_debug_message("Initial XSpeed: " + string(XSpeed))
@@ -102,6 +104,7 @@ if (Player.Death || Player.Hurt) {
 
 if (isGrabbing) {
 	image_index = 1;
+	grabTime++;
 
 	Player.PosX = x + playerOffsetX;
 	Player.PosY = y + playerOffsetY;

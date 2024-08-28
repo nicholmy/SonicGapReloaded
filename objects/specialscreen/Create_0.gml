@@ -14,8 +14,10 @@
 	Offset[4]  =  300;
 	Offset[5]  =  330;
 	RenderFlag = -1;
+	
+	TallyStart = false;
 		
-	audio_bgm_play(AudioPrimary, ActClear);
+	audio_bgm_play(AudioPrimary, ActClear2);
 	
 	switch global.LastZoneCleared
 	{
@@ -26,5 +28,9 @@
 		// Technology Tree
 		case 1:
 			instance_create(x, y, obj_BG_TechTree_Act1);
+		break;
+		// Vivid Voyage
+		case 2:
+			instance_create(x, y, obj_BG_VividVoyage_Act2);
 		break;
 	}

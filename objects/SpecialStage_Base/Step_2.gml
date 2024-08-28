@@ -41,6 +41,11 @@
 		TimeEnabled    = false;
 		global.InSpecialStage = false;
 		
+		// If Eggman is anywhere on screen he will be happy :)
+		with Eggmobile_Face {
+			animation_set(spr_eggmobile_face_happy, 0);
+		}
+		
 		if !global.S3DeathRestart and floor(Player.PosY) >= Stage.BottomBoundary + 32
 		or  global.S3DeathRestart and floor(Player.PosY) >= Camera.ViewY + global.Height + 32
 		{

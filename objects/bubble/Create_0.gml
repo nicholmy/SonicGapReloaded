@@ -13,3 +13,4 @@
 	// Set object properties
 	object_set_unload(FlagDelete);
 	object_set_depth(Player, 1);
+	object_set_hitbox(2, 2);

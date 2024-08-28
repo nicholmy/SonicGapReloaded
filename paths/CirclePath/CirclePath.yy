@@ -1,0 +1,15 @@
+{
+  "$GMPath":"",
+  "%Name":"CirclePath",
+  "closed":false,
+  "kind":1,
+  "name":"CirclePath",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

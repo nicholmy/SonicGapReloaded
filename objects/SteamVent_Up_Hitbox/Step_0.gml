@@ -3,11 +3,9 @@
 
 if (isReady and object_check_player(ColTrigger)) {
 	if (Input.ABCPress) {
-		Player.Grounded = false;
 		Player.Ysp = -7;
-		Player.Animation = AnimSpin;
-		Player.ClimbState = false;
-		Player.OnObject = false;
+		player_reset_air(false);
+		
 		instance_create(x,y, SteamVent_Up_Jet);
 		audio_sfx_play(sfxVentJet, false);
 	

@@ -14,6 +14,18 @@
 			SpriteData   = [spr_obj_swing_tsz_platform, spr_obj_swing_tsz_chain, spr_obj_swing_tsz_pendulum];
 		}
 		break;
+		case Stage_TechTreeAmy:
+		{
+			var Solidbox = [24, 8];
+			SpriteData   = [spr_obj_swing_tsz_platform, spr_obj_swing_tsz_chain, spr_obj_swing_tsz_pendulum];
+		}
+		break;
+		case SpStage_TT_4:
+		{
+			var Solidbox = [28, 28];
+			SpriteData   = [Buzzsaw, spr_obj_swing_tsz_chain, spr_obj_swing_tsz_pendulum];
+		}
+		break;
 		default:
 		{
 			var Solidbox = [0, 0];
@@ -26,7 +38,6 @@
     OriginY   = y;
 	DistanceX = 0;
 	DistanceY = 0;
-    
 	// Set object properties
 	object_set_unload(FlagPause);
 	object_set_depth(Player, 0);

@@ -1,13 +1,13 @@
 function PlayerResetOnFloor()
 {	
 	// Wait until grounded flag is set. That means player has landed
-	if !Grounded
+	if !Grounded or MoveState != StateCommon
 	{
 		return;
 	}
 	
 	// Is water barrier active?
-	if BarrierIsActive and BarrierType == BarrierWater 
+	if BarrierIsActive and BarrierType == BarrierWater and global.Character == CharSonic
 	{
 		var Force = IsUnderwater ? -4 : -7.5;
 		Ysp		  = Force * dcos(Angle);
@@ -28,7 +28,7 @@ function PlayerResetOnFloor()
 	else
 	{
 		// Update player animation
-		if !OnObject and Animation != AnimIdle
+		if !OnObject and Animation != AnimIdle and Animation != AnimHammerRush
 		{
 			if  Animation != AnimSpindash 
 			and Animation != AnimDropStand 
@@ -138,6 +138,28 @@ function PlayerResetOnFloor()
 			Animation   = AnimSpin;
 			
 			audio_sfx_stop(sfxDropDash);
+			
+			if (global.Character == CharAmy) {
+				Spinning = false;
+				Animation = AnimHammerRush;
+				/*PosY   -= DefaultRadiusY - RadiusY;
+				RadiusX	= DefaultRadiusX;
+				RadiusY = DefaultRadiusY; */
+				
+				if (!BarrierIsActive and BarrierType == BarrierFlame) {
+					BarrierIsActive = true;
+					Gsp = 12 * Facing;
+					
+					// Update barrier
+					with Barrier
+					{
+						object_set_depth(Player, 1);
+						animation_play(spr_obj_barrier_flame_dash, 2, 0);
+					}
+						
+					audio_sfx_play(sfxFlameBarrierDash, false);
+				}
+			}
 			audio_sfx_play(sfxRelease, false);
 			
 			instance_create(PosX, PosY + RadiusY, DropdashDust);

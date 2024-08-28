@@ -46,6 +46,24 @@
 			}
 			audio_bgm_stop(AudioPrimary, 0);
 		}
+		
+		with Player {
+			if (Player.HighspeedBonus > 0) {
+				if(Audio.PitchValue!=.2){
+					Audio.PitchValue+=.01
+	            }
+	            if(audio_sound_get_pitch(Track) != 1.2){
+					audio_sound_pitch(Track, 1+Audio.PitchValue);    
+	            }
+			} else {
+				if(Audio.PitchValue!=0){
+	                Audio.PitchValue-=.01
+	            }
+	            if(audio_sound_get_pitch(Track) != 1){
+	                audio_sound_pitch(Track, 1+Audio.PitchValue);    
+	            } 
+			}
+		}
 	
 		switch Event
 		{

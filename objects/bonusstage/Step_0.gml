@@ -16,7 +16,7 @@
 					// Grant extra life
 					if global.BonusStageData[0] >= RingTarget
 					{
-						global.Lives += 1;
+						//global.Lives += 1;
 						RingTarget += 100;
 						
 						audio_bgm_play(AudioSecondary, ExtraLife);	
@@ -69,7 +69,7 @@
 				else
 				{
 					global.BonusStageData = [];
-					room_goto(Screen_DevMenu);
+					room_goto(global.ReturnRoom);
 				}
 			}
 		}

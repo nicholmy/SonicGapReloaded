@@ -23,6 +23,8 @@
 			}
 			Weight = clamp(Weight, 0, 4);
 			
+			if (!allowWeight) Weight = 0;
+			
 			// Update platform movement
 			if MovementType == "Falls When Stood On"
 			{
@@ -56,15 +58,70 @@
 					case "Down -> Up":
 						PosY += dcos(Angle) * 64;
 					break;
+					case "Rectangle":
+						if (pathState == 0) {
+							x = OriginX;
+							y += 2;
+							if (pathProgress >= 32) {
+								pathState = 1;
+								pathProgress = 0;
+							} else {
+								pathProgress++;
+							}
+						}
+						if (pathState == 1) {
+							x += 2;
+							y = OriginY + 64;
+							
+							if (pathProgress >= 64) {
+								pathState = 2;
+								pathProgress = 0;
+							} else {
+								pathProgress++;
+							}
+						}
+						if (pathState == 2) {
+							x = OriginX + 128;
+							y -= 2;
+							if (pathProgress >= 32) {
+								pathState = 3;
+								pathProgress = 0;
+							} else {
+								pathProgress++;
+							}
+						}
+						if (pathState == 3) {
+							x -= 2;
+							y = OriginY;
+							
+							if (pathProgress >= 64) {
+								pathState = 0;
+								pathProgress = 0;
+							} else {
+								pathProgress++;
+							}
+						} 
+					break;
 				}
 			}
 			
-			// Update position
-			x = round(PosX);
-			y = round(PosY + Weight);
+			switch MovementType
+			{
+				case "Left -> Right":
+				case "Right -> Left":
+				case "Up -> Down":
+				case "Down -> Up":
+					// Update position
+					x = round(PosX);
+					y = round(PosY + Weight);
+				break;
+			}
 			
-			// Do collision
-			object_act_solid(false, true, false, false);
+			if (isFullySolid) object_act_solid(true, true, true, false);
+			else {
+				// Do collision
+				object_act_solid(false, true, false, false);
+			}
 		}
 		break;
 		case 1:
@@ -91,8 +148,11 @@
 			}
 			else
 			{
-				// Do collision
-				object_act_solid(false, true, false, false);
+				if (isFullySolid) object_act_solid(true, true, true, false);
+				else {
+					// Do collision
+					object_act_solid(false, true, false, false);
+				}
 			}
 		}
 		break;

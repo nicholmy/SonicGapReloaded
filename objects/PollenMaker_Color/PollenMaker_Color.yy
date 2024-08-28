@@ -1,0 +1,43 @@
+{
+  "$GMObject":"",
+  "%Name":"PollenMaker_Color",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"PollenMaker_Color",
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"PollenMaker_White","path":"objects/PollenMaker_White/PollenMaker_White.yy",},"propertyId":{"name":"spawnSpd","path":"objects/PollenMaker_White/PollenMaker_White.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"50",},
+  ],
+  "parent":{
+    "name":"Details",
+    "path":"folders/Stage Objects/Zone 2 - Tech Tree/Details.yy",
+  },
+  "parentObjectId":{
+    "name":"PollenMaker_White",
+    "path":"objects/PollenMaker_White/PollenMaker_White.yy",
+  },
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":0,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_controller_object",
+    "path":"sprites/spr_controller_object/spr_controller_object.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}

@@ -24,7 +24,9 @@ endObj.baseY = y
 endObj.chainLength = endYOffset
 endObj.depth = depth - (chainNum+1);
 
+/*
 show_debug_message("Depths:");
 show_debug_message(depth);
 show_debug_message(endObj.depth);
 show_debug_message(Player.depth);
+*/

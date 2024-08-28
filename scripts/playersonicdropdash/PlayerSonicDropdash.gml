@@ -40,7 +40,6 @@ function PlayerSonicDropdash()
 		if (++DropdashRev) == 20
 		{
 			Animation = AnimDropdash;
-			
 			// Play sound
 			audio_sfx_play(sfxDropDash, false);
 		}

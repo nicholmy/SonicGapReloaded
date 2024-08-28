@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "PlayerLevelBound",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"v1",
+  "%Name":"PlayerLevelBound",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerLevelBound",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

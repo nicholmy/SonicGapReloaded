@@ -25,7 +25,11 @@
 			Background, 
 			Audio,
 			Player,
-			obj_Generic_BG
+			obj_Generic_BG,
+			Train_Timer,
+			PollenMaker_Color,
+			PollenMaker_White,
+			Pollen_ActChooser
 		];
 		
 		var Length = array_length(IgnoreList);

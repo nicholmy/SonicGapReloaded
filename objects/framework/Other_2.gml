@@ -1,4 +1,4 @@
-/// @description Game Startup / Setup
+/// @description Macros + Game Startup / Setup 
 // You can write your code in this editor
 
 	#region Macro
@@ -46,6 +46,7 @@
 		#macro CharKnuckles	    2
 		#macro CharMighty		3
 		#macro CharRay			4
+		#macro CharAmy			5
 		#macro ClimbJump	   -1
 		#macro ClimbWall        1
 		#macro ClimbLedge		2
@@ -100,6 +101,15 @@
 		#macro AnimRayGlideUp	34
 		#macro AnimRayGlideTurn	35
 		#macro AnimRayGlideDown 36
+		#macro AnimHang			37
+		#macro AnimSwing		38
+		#macro AnimHammerJump	39
+		#macro AnimHammerRush	40
+		#macro AnimHammerSpring 41
+		
+		#macro StateCommon 0
+		#macro StateCurrent 1
+		#macro StateZoom 2
 	
 		// Collision macro
 		#macro ColHitbox  0
@@ -113,6 +123,13 @@
 		#macro LayerA	  0
 		#macro LayerB	  1
 		#macro TileCount  255
+		
+		#macro CourseSkyStation1		0
+		#macro CourseSkyStation2		1
+		#macro CourseTechTree			2
+		#macro CourseVividVoyage		3
+		#macro CourseBackwardBurrow		4
+		#macro CourseFinal				5
 	}
 	#endregion
 	
@@ -128,7 +145,8 @@
 		// Load saved game data
 		for (var i = 0; i < 4; i++)
 		{
-			global.SaveData[i] = savedata_load_ini(i);
+			// global.SaveData[i] = savedata_load_ini(i);
+			global.SaveData[i] = savedata_nosave();
 		}
 	
 		global.GameStartTime = date_current_datetime();

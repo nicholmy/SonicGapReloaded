@@ -4,10 +4,10 @@ function GameSetup()
 	// Game settings
 	global.WindowTitle     = "Sonic Gap Reloaded";
 	global.StartRoom	   = Screen_DevMenu;
-	global.DevMode         = true;
+	global.DevMode         = false;
 	global.ShowSplash      = true;
-	global.Width           = 400;
-	global.Height		   = 224;
+	global.Width           = 600;
+	global.Height		   = 336;
 	global.ScreenBuffer    = 8;
 	global.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
@@ -67,6 +67,7 @@ function GameSetup()
 	global.SpecialRings	   = 0;
 	global.RedRings		   = 0;
 	global.ZoneID		   = 0;
+	global.CurrentAct      = 0;
 	global.ReturnRoom       = 0;
 	//global.LevelFinished   = 0;
 	global.SpecialScore    = 0;
@@ -78,13 +79,21 @@ function GameSetup()
 	global.InSpecialStage = false;
 	global.LastZoneCleared = 0;
 	global.LastScoreTarget = 0;
-	/*
-	global.SpecialRingList = [
-		[0,0,0,0,0,0,0,0,0]
-	];
-	global.RedRingList = [
-		[0,0,0,0,0]
-	];*/
+	global.LastTimeCleared = 0;
+	global.LastCourseID = 0;
+	global.SpecialRingList2 = [];
+	global.RedRingList2 = [];
+	global.SONICBonus = false;
+	//Targets are organized by Course ID
+	// First item is the par time, second is score target, third is the ring target
+	// 3600 is 1 minute
+	global.CourseTargets = [
+		[7200, 3000, 30],
+		[10800, 4000, 40],
+		[36000, 6000, 50],
+		[36000, 7000, 100],
+		[36000, 8000, 30],
+	]
 	savedata_reset();
 	
 	// Font setup

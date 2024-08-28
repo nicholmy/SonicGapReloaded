@@ -33,20 +33,30 @@
 		PlayRingSpawnSound = false;
 		EventMessage = "HEAD TO THE EXIT!";
 		EventTimer = 6000;
+		BossHealth = 0;
+		BossHealthMax = 8;
+		BossToggleHUD = false;
 		
 		RingSpawnState	= 0; // 0 = Ring hasn't spawned, 1 = Ring has spawned, 2 = All Rings have spawned
 		RingSpawnTimer	= 0;
 
+		if (SpecialStageType == 0) {
+			RingsLeft = instance_number(BonusRing);
+			EventMessage = "FIND THE EXIT!";
+		}
 		if (SpecialStageType == 1) {
 			RingsLeft = instance_number(BonusRing);
-			EventMessage = "GRAB THE RINGS!";
+			EventMessage = "GRAB EVERY RING!";
 		}
 		if (SpecialStageType == 2) {
 			EnemiesLeft = instance_number(Enemy);
 			EventMessage = "DEFEAT THE ENEMIES!";
 		}
 		if (SpecialStageType == 3) {
-			EventMessage = "GRAB THE RINGS!";
+			EventMessage = "QUICKLY GRAB RINGS!";
+		}
+		if (SpecialStageType == 4) {
+			EventMessage = "DEFEAT THE BOSS!";
 		}
 		if (SpecialStageType == 0 or SpecialStageType == 1 or SpecialStageType == 3) {
 			EnemiesLeft = 0;
@@ -73,6 +83,18 @@
 			 -3,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1
 			]
 		}
+		
+		WobbleData =
+			[ 
+			  0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2,
+			  2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+			  3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2,
+			  2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+			  0,-1,-1,-1,-1,-1,-2,-2,-2,-2,-2,-3,-3,-3,-3,-3,
+			 -3,-3,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,
+			 -4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-3,
+			 -3,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1
+			]
 	
 		// Set stage boundaries
 		TargetLeftBoundary   = LeftBoundary;

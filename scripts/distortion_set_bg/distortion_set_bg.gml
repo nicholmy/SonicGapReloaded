@@ -1,7 +1,7 @@
 /// @function distortion_set_bg(data1,data2,speed,[datarange])
 function distortion_set_bg(data1,data2,speed,datarange)
 {
-	try
+	/*try
 	{
 		// Set mode
 		if instance_exists(Stage)
@@ -54,7 +54,8 @@ function distortion_set_bg(data1,data2,speed,datarange)
 							+ "\n"
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"
 							+ "You may also get this message because you configured the distortion incorrectly. \n"
+							+ "Check that the _filter_waves has been installed for the runtime. \n"
 							+ "=============================================");
 		DistortionEffect[1] = noone;
-	}
+	}*/
 }

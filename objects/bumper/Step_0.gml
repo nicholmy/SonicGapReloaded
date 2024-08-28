@@ -15,9 +15,9 @@
 				if !GlideState {
 					Xsp = 7 * dcos(Angle);
 				}
+				
 				Ysp     = 7 * -dsin(Angle);
-				Jumping = false;
-				AirLock = false;
+				player_reset_air(false);
 			}
 			
 			// Add points to the score

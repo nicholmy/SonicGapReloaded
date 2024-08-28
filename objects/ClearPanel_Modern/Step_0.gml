@@ -1,5 +1,10 @@
 /// @description Main
-// You can call your scripts in this editor
+// States:
+// 0 - Untouched, showing eggman
+// 1 - Flying through the air
+// 2 - Landed on the ground
+// 3 - Tell the stage to finish
+// 4 - Spun, unspinnable again
 	
 	if PlayerType == "Sonic & Tails" and global.Character == CharKnuckles
 	or PlayerType == "Knuckles"		 and global.Character != CharKnuckles
@@ -31,13 +36,16 @@
 				// Launch the sign
 				YSpeed = max(-abs(Player.Xsp) / 1.5, -8);
 				
+				
 				// Make the goal point the checkpoint
 				global.StarPostData[0] = x;
 				global.StarPostData[1] = y + sprite_get_height(sprite_index) div 2 - Player.DefaultRadiusY - 1;
 				global.StarPostData[2] = Stage.Time;
 				global.StarPostData[3] = room_height;
-				global.StarPostData[4] = id;
-				global.Score		   = Player.Score;
+				global.StarPostData[4] = CheckpointID;
+				
+				//global.Score		   = Player.Score;
+				
 				
 				// Increment state
 				State++;
@@ -110,7 +118,8 @@
 			{
 				// Increment stage state
 				Stage.IsFinished  = 2;
-					
+				Player.InvincibleBonus = 0;
+				Player.HighspeedBonus = 0;	
 				audio_bgm_play(AudioPrimary, ActClear);
 				State = 4;
 			}	
@@ -122,19 +131,25 @@
 		break;
 	}
 	
-	// Update stage boundaries
-	if State <= 3 and Camera.ViewX > x - global.Width - 16
+	// If the sign comes into view, update stage boundaries
+	if State <= 3 and Camera.ViewX > x - global.Width - 16 and Camera.ViewX < x + global.Width/2 - 16
 	{
 		/*if State
 		{
 			Stage.TargetLeftBoundary = x - (global.Width / 2);
 			Stage.TargetRightBoundary = x + (global.Width / 2);
-		}*/
-		if !State
+		}
+		else
 		{
 			Stage.TargetLeftBoundary  = x - global.Width / 2;
 			Stage.TargetRightBoundary = x + global.Width / 2;
 			Stage.TargetBottomBoundary = y + 64;
+		}*/
+		
+		if !State {
+			Stage.TargetLeftBoundary  = x - global.Width / 2;
+			Stage.TargetRightBoundary = x + global.Width / 2;
+			Stage.TargetBottomBoundary = y + 64;
 		}
-
+		
 	}

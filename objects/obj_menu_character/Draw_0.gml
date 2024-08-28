@@ -17,6 +17,9 @@ switch global.Character
 	case CharRay:
 		draw_sprite(spr_ray_idle, 19, x, y-1);
 	break;
+	case CharAmy:
+		draw_sprite(spr_amy_goal, 13, x, y);
+	break;
 }
 
 

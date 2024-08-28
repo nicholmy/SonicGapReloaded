@@ -10,13 +10,23 @@ event_inherited();
 
 //Skies
 scr_draw_background_tiled_area(bg_tt1_sky, 0,  0,  Camera.ViewX * 1,  Camera.ViewY * globalYScroll + 0 + yOffset ,  Camera.ViewX * 0 +  global.Width, 394);
+scr_draw_background_tiled_area(bg_tt1_sky, 0,  0,  Camera.ViewX * 1,  Camera.ViewY * globalYScroll + 394 + yOffset ,  Camera.ViewX * 0 +  global.Width, 394);
+
+//scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.9,  Camera.ViewY * (globalYScroll - 0.0) + 100 + yOffset ,  Camera.ViewX * 0.1 +  global.Width, 322);
+//scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.8,  Camera.ViewY * (globalYScroll - 0.1) + 200 + yOffset ,  Camera.ViewX * 0.2 +  global.Width, 322);
+//scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.7,  Camera.ViewY * (globalYScroll - 0.2) + 350 + yOffset ,  Camera.ViewX * 0.3 +  global.Width, 643);
+//scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.9,  Camera.ViewY * (globalYScroll) + 450 + yOffset ,  Camera.ViewX * 0.4 +  global.Width, 643);
 
 
-scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.9,  Camera.ViewY * (globalYScroll - 0.1) + 100 + yOffset ,  Camera.ViewX * 0.1 +  global.Width, 322);
-scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.8,  Camera.ViewY * (globalYScroll - 0.1) + 200 + yOffset ,  Camera.ViewX * 0.2 +  global.Width, 322);
-scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.7,  Camera.ViewY * (globalYScroll - 0.4) + 650 + yOffset ,  Camera.ViewX * 0.3 +  global.Width, 643);
-scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.6,  Camera.ViewY * (globalYScroll - 0.4) + 750 + yOffset ,  Camera.ViewX * 0.4 +  global.Width, 643);
 
+scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.9,  Camera.ViewY * (globalYScroll - 0.0) + 300 + yOffset ,  Camera.ViewX * 0.1 +  global.Width, 322);
+
+scr_draw_background_tiled_area(bg_tt1_tree4, 0, 0,  Camera.ViewX * 0.8,  Camera.ViewY * (globalYScroll - 0.0) + 350 + yOffset ,  Camera.ViewX * 0.2 +  global.Width, 322);
+
+scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.7,  Camera.ViewY * (globalYScroll - 0.0) + 100 + yOffset ,  Camera.ViewX * 0.3 +  global.Width, 643);
+/*
+scr_draw_background_tiled_area(bg_tt1_tree1, 0, 0,  Camera.ViewX * 0.6,  Camera.ViewY * (globalYScroll - 0.3) + 450 + yOffset ,  Camera.ViewX * 0.4 +  global.Width, 643);
+*/
 
 
 /*

@@ -31,6 +31,9 @@
 		case CharRay:
 			var Text1 = "RAY____GOT____A";
 		break;
+		case CharAmy:
+			var Text1 = "AMY____GOT____A";
+		break;
 		default:
 			var Text1 = "CHARACTER____GOT____A";
 	}
@@ -61,7 +64,7 @@
 		/*for (var i = 0; i < global.Emeralds; i++)
 		{
 			draw_sprite(tex_sstage_reward, i, CentreX - 58 + 20 * i, CentreY);
-		}*/
+		}
 		
 		for (var i = 0; i < array_length(global.SpecialRingList[global.LastZoneCleared]); i++) {
 			if (global.SpecialRingList[global.LastZoneCleared][i]) {
@@ -69,7 +72,7 @@
 			} else {
 				draw_sprite(spr_obj_ring_special_disabled, 0, CentreX - 110 + 28 * i, CentreY);
 			}
-		}
+		}*/
 		
 		/*
 		for (var i = 0; i < array_length(global.SpecialRingList[global.LastZoneCleared]); i++) {
@@ -92,7 +95,7 @@
 	
 	draw_sprite(spr_obj_ring_special, 0, CentreX + 128 + Offset[2], CentreY + 92);
 	if global.SpecialRingList[global.LastZoneCleared][global.LastRingCleared+1]
-		draw_sprite(spr_obj_specialring_collected, 0, CentreX + 128 + Offset[2], CentreY + 92);
+		draw_sprite(spr_obj_checkmark, 0, CentreX + 128 + Offset[2], CentreY + 92);
 	
 	
 	

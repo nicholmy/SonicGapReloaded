@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "PlayerGroundFloorCollision",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"v1",
+  "%Name":"PlayerGroundFloorCollision",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerGroundFloorCollision",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

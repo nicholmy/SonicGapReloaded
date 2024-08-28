@@ -6,4 +6,4 @@
 		// Destroy on animation end
 		instance_destroy();
 	}
-	y = Stage.WaterLevel;
+	//y = Stage.WaterLevel;

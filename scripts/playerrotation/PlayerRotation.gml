@@ -1,6 +1,10 @@
 function PlayerRotation()
 {
-	if Animation != AnimMove
+	if Animation == AnimSwing
+	{
+		return;
+	}
+	else if Animation != AnimMove and Animation != AnimHammerRush
 	{
 		VisualAngle = 360;
 	}

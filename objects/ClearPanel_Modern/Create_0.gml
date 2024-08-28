@@ -48,6 +48,12 @@
 			SpriteData[1] = spr_obj_clearpanel_end_r;
 		}
 		break;
+		case CharAmy:
+		{
+			SpriteData[0] = spr_obj_clearpanel_start_st;
+			SpriteData[1] = spr_obj_clearpanel_end_a;
+		}
+		break;
 		default:
 		{
 			SpriteData[0] = spr_obj_clearpanel_start_st;

@@ -108,6 +108,7 @@ function PlayerMovementGround()
 	{
 		case AnimDropStand:
 		case AnimGlideStand:
+		case AnimHammerRush:
 			var AnimationPriority = true;
 		break;
 		default:
@@ -140,11 +141,11 @@ function PlayerMovementGround()
 	}
 	else
 	{
-		if Animation != AnimSkid
+		if Animation != AnimSkid and !AnimationPriority
 		{
 			Animation = AnimMove;
 		}
-		else if Gsp > 0 and Input.Right or Gsp < 0 and Input.Left
+		else if !AnimationPriority and (Gsp > 0 and Input.Right or Gsp < 0 and Input.Left)
 		{
 			Animation = AnimMove;
 		}

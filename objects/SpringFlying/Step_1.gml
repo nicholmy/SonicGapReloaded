@@ -7,11 +7,13 @@ animation_play(sprite_index, 2, 0);
 object_act_solid(false, true, false, false, false);
 
 // Upon player collision...
-if (object_check_player(ColSolidU)) {
+if (Player.IsAmyHammerJumping and Player.Ysp > 0 and object_check_player(ColHitbox2)) {
+	
+	player_reset_air(false);
 	// Bounce the player up
 	Player.Grounded = false;
-	Player.Ysp = Player.HammerState ? -superStrength : -strength;
-	Player.Animation = AnimSpring;
+	Player.Ysp = -superStrength;
+	Player.Animation =  AnimHammerSpring;
 	Player.ClimbState = false;
 	Player.OnObject = false;
 	Player.Jumping = false;
@@ -19,6 +21,20 @@ if (object_check_player(ColSolidU)) {
 	audio_sfx_play(sfxSpring, false);
 	startBounce = true;
 }
+else if (object_check_player(ColSolidU)) {
+	// Bounce the player up
+	Player.Grounded = false;
+	Player.Ysp = Player.HammerState ? -superStrength : -strength;
+	Player.Animation =  AnimSpring;
+	Player.ClimbState = false;
+	Player.OnObject = false;
+	Player.Jumping = false;
+	
+	audio_sfx_play(sfxSpring, false);
+	startBounce = true;
+}
+
+
 
 /*if (startBounce) {
 	time = 360;
@@ -31,10 +47,14 @@ if (superBounce) {
 	superBounce = false;
 	bounceStrength = superStrength;
 }
-
-if (time > 0) {
-	y = y - dcos(time) * bounceStrength/2;
-	time -= 24;
-}*/
+*/
+if (startBounce and time++ > 0) {
+	angle++;
+	
+	if (angle >= 720) { 
+		angle = 0
+		startBounce = false;
+	}
+}
 
 

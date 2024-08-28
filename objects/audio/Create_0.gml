@@ -23,6 +23,7 @@
 		SecondaryTrack[1] = noone;
 		SecondaryTrack[2] = 0;
 		SecondaryTrack[3] = noone;
+		PitchValue = 0;
 	
 		// Create data structures
 		TrackLoopData = ds_map_create();
